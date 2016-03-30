@@ -4,8 +4,9 @@ import lifeform.LifeForm;
 import java.util.ArrayList;
 import item.Item;
 
+
 public class Cell
-{
+{	
 	int xLoc, yLoc;
 	LifeForm inhabitant;
 	private ArrayList<Item> onGround;

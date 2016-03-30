@@ -3,30 +3,18 @@ package item;
 public abstract class Item
 {
 	int weight, type;
-	String name;
-	char rep;
+	String name, description;
 	
-	public Item(String n, int t, char r, int w)
+	public Item(int t, String n, String w)
 	{
-		name = n;
-		type = t;
-		rep = r;
-		weight = w;
-	}
-	public Item(String n, int t, char r)
-	{
-		this(n, t, r, 5);
-	}
-	public Item(String n, int t)
-	{
-		this(n, t, '%', 5);
-	}
-	public Item(String n)
-	{
-		this(n, -1, '%', 5);
+		name = n;type = t; weight = Integer.parseInt(w);
 	}
 	public Item()
 	{
-		this("unnamed", -1, '%', 5);
+		
+	}
+	public String toString()
+	{
+		return name;
 	}
 }

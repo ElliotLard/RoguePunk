@@ -8,7 +8,7 @@ public abstract class LifeForm
 	final static int HEAD = 0, TORSO = 1, ARMS = 2, LEGS = 3;
 	Cell location;
 	int speed, hp, strength;
-	String name;
+	String name, description;
 	char representation;
 	BodyPart head, torso, arms, legs;
 
@@ -33,7 +33,7 @@ public abstract class LifeForm
 	}
 	public LifeForm()
 	{
-		this('@', "monster", 1, new Cell());
+		//this('@', "monster", 1, new Cell());
 	}
 	
 	public void move(Cell destination)
