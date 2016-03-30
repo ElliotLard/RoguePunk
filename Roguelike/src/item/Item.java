@@ -1,6 +1,6 @@
 package item;
 
-public class Item
+public abstract class Item
 {
 	int weight, type;
 	String name;

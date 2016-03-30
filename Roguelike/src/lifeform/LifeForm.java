@@ -7,7 +7,7 @@ public abstract class LifeForm
 {
 	final static int HEAD = 0, TORSO = 1, ARMS = 2, LEGS = 3;
 	Cell location;
-	int speed, hp;
+	int speed, hp, strength;
 	String name;
 	char representation;
 	BodyPart head, torso, arms, legs;

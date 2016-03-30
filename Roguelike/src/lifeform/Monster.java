@@ -1,11 +1,18 @@
 package lifeform;
 
+import environment.Cell;
 import item.BodyPart;
 
-public class Monster extends LifeForm
+public class Monster extends MockLifeForm
 {
+	public Monster(char r, String n, int s, Cell l)
+	{
+		super(r, n, s, l);
+	}
+
 	public void setArms(BodyPart arms){
 		this.arms = arms;
+		
 	}
 	
 	public BodyPart getArms(){
