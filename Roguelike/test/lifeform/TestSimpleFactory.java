@@ -12,7 +12,6 @@ public class TestSimpleFactory
 	public void test()// throws FileNotFoundException
 	{
 		SimpleFactory factory = new SimpleFactory();
-		factory.testRead();
-		assertNull(factory.check);
+		factory.buildMonster("CogGoblin", 'D', 10, 10, 10);
 	}
 }

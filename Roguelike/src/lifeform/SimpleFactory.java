@@ -3,23 +3,23 @@ package lifeform;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class SimpleFactory
 {
-	int x;
-	String[] text = new String[x];
-	File check;
+	File monsterFile;
+	String[] monsterTxt;
+	String monsterName = "";
+	int count = 0;
 	
-	public Monster buildMonster(String name, char rep, int str, int hp, int speed) throws FileNotFoundException{
+	public Monster buildMonster(String name, char rep, int str, int hp, int speed)
+	{
+		String derp = name;
 		
-		return null;
-	}
-	
-	public void testRead(){
-
-	    try {
+		try	
+		{
             Scanner input = new Scanner(System.in);
             File file = new File("Assets/Monsters");
 
@@ -31,10 +31,29 @@ public class SimpleFactory
                 System.out.println(line);
             }
             input.close();
-
-        } catch (Exception ex) {
+            monsterFile = file;
+            monsterTxt = new String[(int) monsterFile.length()];
+            
+            String monster = new Scanner(new File("Assets/Monsters")).useDelimiter("\\Z").next();
+            
+            monsterTxt = monster.split("");
+        } 
+		catch (Exception ex) 
+		{
             ex.printStackTrace();
         }
-	    
+		
+		while (!(monsterName.contains(name))){
+			if (monsterName.contains(" ")){
+				monsterName = "";
+			}
+			monsterName = monsterName + monsterTxt[count];
+			count++;
+		}
+		
+		System.out.println("Success!" + monsterName);
+		System.out.println(derp);
+		
+		return null;
 	}
 }
