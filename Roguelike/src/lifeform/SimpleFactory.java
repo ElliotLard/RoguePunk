@@ -6,17 +6,20 @@ import java.io.FileReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import item.BodyPart;
+import item.Head;
+
 
 public class SimpleFactory
 {
 	File monsterFile;
 	String[] monsterTxt;
 	String monsterName = "";
+	char monsterRep;
 	int count = 0;
 	
 	public Monster buildMonster(String name, char rep, int str, int hp, int speed)
 	{
-		String derp = name;
 		
 		try	
 		{
@@ -28,7 +31,7 @@ public class SimpleFactory
 
             while (input.hasNextLine()) {
                 String line = input.nextLine();
-                System.out.println(line);
+//                System.out.println(line);
             }
             input.close();
             monsterFile = file;
@@ -50,9 +53,21 @@ public class SimpleFactory
 			monsterName = monsterName + monsterTxt[count];
 			count++;
 		}
+		String mnstrNme = monsterName;
+		System.out.println("Success! " + monsterName);		
 		
-		System.out.println("Success!" + monsterName);
-		System.out.println(derp);
+		while (!(monsterName.contains(String.valueOf(rep)))){
+			if (monsterName.contains(" ")){
+				monsterName = "";
+			}
+			monsterName = monsterName + monsterTxt[count];
+			count++;
+		}
+		
+		System.out.println("Success! " + monsterName);
+		monsterRep = monsterName.charAt(0);
+		
+		BodyPart head = new Head(mnstrNme, monsterRep);
 		
 		return null;
 	}
