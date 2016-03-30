@@ -17,11 +17,25 @@ public class SimpleFactory
 		return null;
 	}
 	
-	public void testRead() throws FileNotFoundException{
-		File file = new File("/Roguelike/Assets/Monsters");
-		check = file;
-		Scanner in = new Scanner(new FileReader(file));
-		
-		System.out.print(in);	
+	public void testRead(){
+
+	    try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Monsters");
+            File file = new File("Monsters");
+
+            input = new Scanner(file);
+
+
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                System.out.println(line);
+            }
+            input.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+	    
 	}
 }

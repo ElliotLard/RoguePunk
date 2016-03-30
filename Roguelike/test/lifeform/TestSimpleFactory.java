@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TestSimpleFactory
 {
 	@Test
-	public void test() throws FileNotFoundException
+	public void test()// throws FileNotFoundException
 	{
 		SimpleFactory factory = new SimpleFactory();
 		factory.testRead();
