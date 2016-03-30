@@ -21,8 +21,7 @@ public class SimpleFactory
 
 	    try {
             Scanner input = new Scanner(System.in);
-            System.out.print("Monsters");
-            File file = new File("Monsters");
+            File file = new File("Assets/Monsters");
 
             input = new Scanner(file);
 
