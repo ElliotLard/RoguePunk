@@ -26,7 +26,7 @@ public class EnemyFactory
                 enemyList.add(newEnemy);
             }
             input.close();
-        } 
+        }
 		catch (Exception ex) 
 		{
             ex.printStackTrace();

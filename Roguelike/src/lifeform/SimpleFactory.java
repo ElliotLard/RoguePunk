@@ -1,14 +1,10 @@
 package lifeform;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 import item.BodyPart;
-import item.Head;
-
 
 public class SimpleFactory
 {
@@ -67,7 +63,7 @@ public class SimpleFactory
 		System.out.println("Success! " + monsterName);
 		monsterRep = monsterName.charAt(0);
 		
-		BodyPart head = new Head(mnstrNme, monsterRep);
+		//BodyPart head = new Head(mnstrNme, monsterRep);
 		
 		return null;
 	}

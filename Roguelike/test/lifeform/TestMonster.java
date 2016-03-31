@@ -12,7 +12,7 @@ public class TestMonster
 		/**
 		 * Test initialization of a monster
 		 */
-		MockLifeForm m1 = new Monster('D', "Douglas", 10, null);
+		MockLifeForm m1 = new Monster("D", "Douglas", 10, null);
 		assertEquals('D', m1.representation);
 		assertEquals("Douglas", m1.name);
 		assertEquals(10, m1.speed);

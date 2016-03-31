@@ -5,7 +5,7 @@ import item.BodyPart;
 
 public class Monster extends MockLifeForm
 {
-	public Monster(char r, String n, int s, Cell l)
+	public Monster(String r, String n, int s, Cell l)
 	{
 		super(r, n, s, l);
 	}

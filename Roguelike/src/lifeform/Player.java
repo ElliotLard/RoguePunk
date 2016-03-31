@@ -12,7 +12,7 @@ public class Player extends LifeForm
 	
 	private Player()
 	{
-		super('@', "player");
+		super("@", "player");
 		inventory = new ArrayList<Item>();
 	}
 	
