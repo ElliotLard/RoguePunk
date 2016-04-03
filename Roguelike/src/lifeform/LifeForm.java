@@ -2,13 +2,14 @@ package lifeform;
 
 import environment.Cell;
 import environment.Environment;
+import gameplay.RoundObserver;
 import item.BodyPart;
 
-public abstract class LifeForm
+public abstract class LifeForm implements RoundObserver
 {
 	final static int HEAD = 0, TORSO = 1, ARMS = 2, LEGS = 3;
 	Cell location;
-	int speed, hp, strength;
+	int speed, hp, strength, round;
 	String name, description;
 	String representation;
 	BodyPart head, torso, arms, legs;
@@ -71,6 +72,11 @@ public abstract class LifeForm
 	public String displayString()
 	{
 		return representation;
+	}
+	
+	public void updateRound(int round)
+	{
+		this.round = round;
 	}
 	
 }
