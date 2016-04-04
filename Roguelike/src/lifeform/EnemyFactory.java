@@ -22,8 +22,8 @@ public class EnemyFactory
             	String[] lineSplit = new String[3];
                 String line = input.nextLine();
                 lineSplit = line.split(", ");
-                Enemy newEnemy = buildEnemy(lineSplit);
-                enemyList.add(newEnemy);
+ //               Enemy newEnemy = buildEnemy(lineSplit);
+ //               enemyList.add(newEnemy);
             }
             input.close();
         }
@@ -33,6 +33,7 @@ public class EnemyFactory
         }	
 	}
 	
+	/*
 	private static Enemy buildEnemy(String[] lineSplit)
 	{
 		BodyPart head = new BodyPart(
@@ -45,4 +46,5 @@ public class EnemyFactory
         		LifeForm.LEGS, lineSplit[0] + " legs",lineSplit[1]);
         return new Enemy(head, torso, arms, legs, lineSplit[2]);
 	}
+	*/
 }

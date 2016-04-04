@@ -8,12 +8,12 @@ import item.Item;
 public class Player extends LifeForm
 {
 	static Player player;
-	private ArrayList<Item> inventory;
+	private ArrayList<BodyPart> inventory;
 	
 	private Player()
 	{
 		super("@", "player");
-		inventory = new ArrayList<Item>();
+		inventory = new ArrayList<BodyPart>();
 	}
 	
 	public static Player getPlayer()
@@ -23,7 +23,7 @@ public class Player extends LifeForm
 		return player;
 	}
 	
-	public void pickup(Item i)
+	public void pickup(BodyPart i)
 	{
 		inventory.add(i);
 		location.removeItem(i);
