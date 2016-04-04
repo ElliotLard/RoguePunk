@@ -2,20 +2,23 @@ package item;
 
 public class ItemPrefix
 {
-	String prefName;
+	String name;
 	int strength, hitPoints, weight;
 	
-	public ItemPrefix (String name, int str, int hp, int w){
-		prefName = name + " ";
+	public ItemPrefix (String n, int str, int hp, int w){
+		name = n;
 		strength = str;
 		hitPoints = hp;
 		weight = w;
 	}
+	public ItemPrefix (String name, String str, String hp, String w){
+		this(name, Integer.parseInt(str), Integer.parseInt(hp), Integer.parseInt(w));
+	}
 		
 	
-	public String getPrefix()
+	public String getName()
 	{
-		return prefName;
+		return name;
 	}
 
 	public int addStrength()

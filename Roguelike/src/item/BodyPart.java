@@ -2,46 +2,45 @@ package item;
 
 public class BodyPart
 {
+	final int HEAD = 0, TORSO = 1, ARMS = 3, LEGS = 3;
 	int type;
-	ItemMaterial mat = null;
-	ItemPrefix pref = null;
-	String partName = "";
-	String part = "";
-	String rep;
+	ItemPrefix prefix, material;
+	String partName, name, rep;
 	int hp, strength, weight;
 
 	
-	public BodyPart(ItemPrefix prefix, ItemMaterial material, String name)
+	public BodyPart(ItemPrefix pref, ItemPrefix mat, String name)
 	{
 		partName = name;
-		mat = material;
-		pref = prefix;
+		material = mat;
+		prefix = pref;
 		hp = material.addHitPoints() + prefix.addHitPoints();
 		strength = material.addStrength() + prefix.addStrength();
 		weight = material.addWeight() + prefix.addWeight();
 		rep = "|";
+		
+		if (partName == "Head"){
+			type = HEAD;
+		}
+		if (partName == "Torso"){
+			type = TORSO;
+		}
+		if (partName == "Arms"){
+			type = ARMS;
+		}
+		if (partName == "Legs"){
+			type = LEGS;
+		}
 	}
 
 	public int getType()
 	{
-		if (partName == "Head"){
-			type = 0;
-		}
-		if (partName == "Torso"){
-			type = 1;
-		}
-		if (partName == "Arms"){
-			type = 2;
-		}
-		if (partName == "Legs"){
-			type = 3;
-		}
 		return type;
 	}
 	
-	public String getPartName(){
-		part = part + pref.getPrefix() + mat.getMaterial() + partName;
-		return part;
+	public String getName(){
+		name = name + prefix.getName() + material.getName() + partName;
+		return name;
 	}
 	
 	public String displayString()
