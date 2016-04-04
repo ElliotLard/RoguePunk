@@ -18,8 +18,8 @@ public class TestItemFactory
 	@Test
 	public void testTorsoCreation()
 	{
-		BodyPart brassChasis = factory.makePart("Goblin", "Brass", "Chasis");
-		assertEquals("Goblin Brass Chasis", brassChasis.getPartName());
+		BodyPart brassChasis = factory.makePart("Goblin", "Brass", "Torso");
+		assertEquals("Goblin Brass Torso", brassChasis.getPartName());
 	}
 	
 	@Test

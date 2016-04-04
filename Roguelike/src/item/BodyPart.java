@@ -1,25 +1,21 @@
 package item;
 
-import itemprefixes.ItemPrefixes;
-import material.Material;
-
 public class BodyPart
 {
 	int type;
-	Material mat = null;
-	ItemPrefixes pref = null;
+	ItemMaterial mat = null;
+	ItemPrefix pref = null;
 	String partName = "";
 	String part = "";
 	String rep;
-	int speed, hp, strength, weight;
+	int hp, strength, weight;
 
 	
-	public BodyPart(ItemPrefixes prefix, Material material, String name)
+	public BodyPart(ItemPrefix prefix, ItemMaterial material, String name)
 	{
 		partName = name;
 		mat = material;
 		pref = prefix;
-		speed = material.addSpeed() + prefix.addSpeed();
 		hp = material.addHitPoints() + prefix.addHitPoints();
 		strength = material.addStrength() + prefix.addStrength();
 		weight = material.addWeight() + prefix.addWeight();

@@ -1,23 +1,19 @@
 package item;
 
-import itemprefixes.GoblinPrefix;
-import itemprefixes.ItemPrefixes;
-import material.Brass;
-import material.Material;
 
 public class ItemFactory
 {
 	public BodyPart makePart(String prefix, String mats, String type){
-		ItemPrefixes pref = null;
-		Material material = null;
+		ItemPrefix pref = null;
+		ItemMaterial material = null;
 		BodyPart part = null;
 		
 		if(prefix == "Goblin"){
-			pref = new GoblinPrefix();
+			pref = new ItemPrefix("Goblin", 2, 2, 2);
 		}
 		
 		if(mats == "Brass"){
-			material = new Brass();
+			material = new ItemMaterial("Brass", 4, 4, 4);
 		}
 		if (type == "Arms"){
 			String name = type;
