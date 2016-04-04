@@ -3,7 +3,7 @@ package item;
 import itemprefixes.ItemPrefixes;
 import material.Material;
 
-public abstract class BodyPart
+public class BodyPart
 {
 	int type;
 	Material mat = null;
@@ -28,6 +28,18 @@ public abstract class BodyPart
 
 	public int getType()
 	{
+		if (partName == "Head"){
+			type = 0;
+		}
+		if (partName == "Torso"){
+			type = 1;
+		}
+		if (partName == "Arms"){
+			type = 2;
+		}
+		if (partName == "Legs"){
+			type = 3;
+		}
 		return type;
 	}
 	

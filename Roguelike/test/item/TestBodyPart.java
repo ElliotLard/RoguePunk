@@ -16,7 +16,7 @@ public class TestBodyPart
 	{
 		ItemPrefixes goblin = new GoblinPrefix();
 		Material brass = new Brass();
-		BodyPart arms = new Arms(goblin, brass, "Arms");
+		BodyPart arms = new BodyPart(goblin, brass, "Arms");
 		assertEquals("Goblin Brass Arms", arms.getPartName());
 		assertEquals(2, arms.getType());
 		assertEquals("|", arms.rep);
