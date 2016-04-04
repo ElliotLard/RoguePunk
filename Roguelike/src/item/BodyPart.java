@@ -20,7 +20,6 @@ public class BodyPart
 		rep = "|";
 		
 		if (partName == "Head"){
-<<<<<<< HEAD
 			type = HEAD;
 		}
 		if (partName == "Torso"){
@@ -31,7 +30,6 @@ public class BodyPart
 		}
 		if (partName == "Legs"){
 			type = LEGS;
-=======
 			type = 0;
 		}
 		if (partName == "Torso"){
@@ -42,7 +40,6 @@ public class BodyPart
 		}
 		if (partName == "Legs"){
 			type = 3;
->>>>>>> refs/remotes/origin/master
 		}
 	}
 
