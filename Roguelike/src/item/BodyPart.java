@@ -20,10 +20,7 @@ public class BodyPart
 		strength = material.addStrength() + prefix.addStrength();
 		weight = material.addWeight() + prefix.addWeight();
 		rep = "|";
-	}
-
-	public int getType()
-	{
+		
 		if (partName == "Head"){
 			type = 0;
 		}
@@ -36,6 +33,10 @@ public class BodyPart
 		if (partName == "Legs"){
 			type = 3;
 		}
+	}
+
+	public int getType()
+	{
 		return type;
 	}
 	
