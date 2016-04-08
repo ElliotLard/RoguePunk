@@ -2,8 +2,6 @@ package gameplay;
 
 import java.util.ArrayList;
 
-import lifeform.LifeForm;
-
 public class Observer implements RoundCounter
 {
 	private ArrayList<RoundObserver> theObservers = new ArrayList<RoundObserver>();

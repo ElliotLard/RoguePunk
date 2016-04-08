@@ -1,41 +1,42 @@
 package lifeform;
 
+import dungeon.displayable;
 import environment.Cell;
 import environment.Environment;
 import gameplay.RoundObserver;
 import item.BodyPart;
 
-public abstract class LifeForm implements RoundObserver
+public abstract class LifeForm implements RoundObserver, displayable
 {
 	final static int HEAD = 0, TORSO = 1, ARMS = 2, LEGS = 3;
 	Cell location;
 	int speed, hp, strength, round;
 	String name, description;
-	String representation;
+	char rep;
 	BodyPart head, torso, arms, legs;
 
-	public LifeForm(String r, String n, int s, Cell l)
+	public LifeForm(char r, String n, int s, Cell l)
 	{
-		representation = r;
+		rep = r;
 		name = n;
 		speed = s;
 		location = l;
 	}
-	public LifeForm(String r, String n, int s)
+	public LifeForm(char r, String n, int s)
 	{
 		this(r, n, s, new Cell());
 	}
-	public LifeForm(String r, String n)
+	public LifeForm(char r, String n)
 	{
 		this(r, n, 1, new Cell());
 	}
-	public LifeForm(String r)
+	public LifeForm(char r)
 	{
 		this(r, "monster", 1, new Cell());
 	}
 	public LifeForm()
 	{
-		this("@", "monster", 1, new Cell());
+		this('.', "monster", 1, new Cell());
 	}
 	
 	public void move(Cell destination)
@@ -67,11 +68,6 @@ public abstract class LifeForm implements RoundObserver
 	public void takeHit(int damage)
 	{
 		hp -= damage;
-	}
-	
-	public String displayString()
-	{
-		return representation;
 	}
 	
 	public void updateRound(int round)

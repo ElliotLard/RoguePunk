@@ -6,6 +6,12 @@ import java.util.Scanner;
 
 public class ItemFactory
 {	
+	/**
+	 * 
+	 * @param fileName
+	 * @return
+	 */
+	@SuppressWarnings("resource")
 	public ArrayList<ItemPrefix> make(String list)
 	{
 		ArrayList<ItemPrefix> prefixList = new ArrayList<ItemPrefix>();

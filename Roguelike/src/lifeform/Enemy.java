@@ -20,4 +20,10 @@ public class Enemy extends LifeForm
 		
 		return s;
 	}
+
+	@Override
+	public char getRep()
+	{
+		return rep;
+	}
 }

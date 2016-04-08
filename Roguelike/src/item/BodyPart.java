@@ -30,23 +30,10 @@ public class BodyPart
 		}
 		if (partName == "Legs"){
 			type = LEGS;
-			type = 0;
-		}
-		if (partName == "Torso"){
-			type = 1;
-		}
-		if (partName == "Arms"){
-			type = 2;
-		}
-		if (partName == "Legs"){
-			type = 3;
 		}
 	}
 
-	public int getType()
-	{
-		return type;
-	}
+
 	
 	public String getName(){
 		name = name + prefix.getName() + material.getName() + partName;

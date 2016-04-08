@@ -4,79 +4,106 @@ import lifeform.LifeForm;
 import java.util.ArrayList;
 
 import GUI.GUIConstants;
-import item.BodyPart;
+import dungeon.displayable;
 import item.Item;
 
 
-public class Cell
+public class Cell implements displayable
 {	
 	int xLoc, yLoc;
 	LifeForm inhabitant;
-	private ArrayList<BodyPart> onGround;
-	public String rep;
-	int type;
-	public Cell(int y, int x)
+	private ArrayList<Item> onGround = new ArrayList<Item>();;
+	char rep;
+	/**
+	 * @author elliotlard
+	 * 
+	 * initiates a cell with an x and y location
+	 * 
+	 * @param  y	the y index of the cell to be created
+	 * @param  x	the x index of the cell to be created
+	 */
+	public Cell(int y, int x, char r)
 	{
 		yLoc = y;
 		xLoc = x;
-		onGround = new ArrayList<BodyPart>();
-		type = 2;
-	}
-	public Cell(int y, int x, int t)
-	{
-		yLoc = y;
-		xLoc = x;
-		onGround = new ArrayList<BodyPart>();
-		type = t;
+		rep = r;
 	}
 	public Cell()
 	{
-		
 	}
 	
-	public void addLifeForm(LifeForm l)
+	/**
+	 * @author elliotlard
+	 * 
+	 * Adds a LifeForm to the cell if it is not already holding one.
+	 * 
+	 * @param  lifeForm	the LifeForm you wish to add to the cell
+	 */
+	public void addLifeForm(LifeForm lifeForm)
 	{
 		if(inhabitant != null)
-			inhabitant = l;
+			inhabitant = lifeForm;
 		else
 			System.out.println("cell occupied");
 	}
+	
+	/**
+	 * @author elliotlard
+	 * 
+	 * removes the LifeForm from the cell if there is one in it.
+	 */
 	public void removeLifeForm()
 	{
 		inhabitant = null;
 	}
-	public void addItem(BodyPart i)
+	
+	/**
+	 * @author elliotlard
+	 * 
+	 * adds the desired item to the ground
+	 * 
+	 * @param  item	the item you wish to add to the cell
+	 */
+	public void addItem(Item item)
 	{
-		onGround.add(i);
-	}
-	public void removeItem(BodyPart i)
-	{
-		onGround.remove(i);
-	}
-	public int yLoc()
-	{
-		return yLoc;
-	}
-	public int xLoc()
-	{
-		return xLoc;
+		onGround.add(item);
 	}
 	
-	public String displayString()
+	/**
+	 * @author elliotlard
+	 * 
+	 * removes a specific item from the ground
+	 * 
+	 * @param  item	the item to be taken off the ground
+	 */
+	public void removeItem(Item item)
 	{
-		if(inhabitant!= null)
-			return inhabitant.displayString();
-		else if(onGround.size()>0)
-			return onGround.get(0).displayString();
-		switch(type)
-		{
-			case GUIConstants.WALL:
-				return "#";
-			case GUIConstants.EMPTY:
-				return ".";
-			case GUIConstants.NULL:
-				return "%";
-		}
-		return "!";
+		onGround.remove(item);
+	}
+	
+	/**
+	 * @author elliotlard
+	 * 
+	 * @return      the y index of this cell
+	 */
+	public int getyLoc()
+	{
+		return this.yLoc;
+	}
+	
+	/**
+	 * @author elliotlard
+	 * 
+	 * @return      the x index of this cell
+	 */
+	public int getxLoc()
+	{
+		return this.xLoc;
+	}
+	
+	@Override
+	public char getRep()
+	{
+		return rep;
 	}
 }

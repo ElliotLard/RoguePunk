@@ -18,6 +18,10 @@ public abstract class Item
 	{
 		return name;
 	}
+	public int getType()
+	{
+		return type;
+	}
 	public String displayString()
 	{
 		return rep;

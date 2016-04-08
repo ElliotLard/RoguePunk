@@ -1,15 +1,21 @@
 package runner;
 
-import GUI.Display;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
+import GUI.Window;
+import dungeon.DungeonAdapter;
+import dungeon.DungeonEditor;
+import dungeon.dungeonUtility;
 import environment.Environment;
+
 
 public class Runner
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException
 	{
-		Environment.getLevel();
-		Display game = new Display();
-		game.updatePlaySpace(Environment.getTileMap());
-		game.draw();
+		Environment world = Environment.getLevel("levelName");
+
+		DungeonEditor gui = new DungeonEditor();
 	}
 }
