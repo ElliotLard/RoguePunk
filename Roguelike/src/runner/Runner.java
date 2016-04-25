@@ -14,7 +14,7 @@ public class Runner
 {
 	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException
 	{
-		Environment world = Environment.getLevel("levelName");
+		Environment world = Environment.getLevel("blankLevel");
 
 		DungeonEditor gui = new DungeonEditor();
 	}
