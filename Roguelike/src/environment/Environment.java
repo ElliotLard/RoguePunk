@@ -10,7 +10,7 @@ import dungeon.dungeonUtility;
 public class Environment
 {
 	public static final int HEIGHT = 60, WIDTH = 80;
-	Cell tileMap[][];
+	private Cell tileMap[][];
 	static Environment level;
 	
 	private Environment(String fileName)

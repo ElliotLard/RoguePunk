@@ -12,7 +12,7 @@ public class Player extends LifeForm
 		super(name, rep, health, strength, speed, head, torso, arms, legs);
 	}
 	
-	public Player(){
-		super("Player", '@', 100, 10, 10, head, torso, arms, legs);
-	}
+//	public Player(){
+//		super("Player", '@', 100, 10, 10, head, torso, arms, legs);
+//	}
 }
