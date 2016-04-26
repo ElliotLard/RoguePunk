@@ -45,6 +45,11 @@ public abstract class LifeForm implements RoundObserver
 		}
 	}
 	
+	public LifeForm()
+	{
+		this("bob", '@', 5, 10, 5);
+	}
+	
 	/**
 	 * This is mostly Commands.
 	 * @param i
@@ -78,29 +83,30 @@ public abstract class LifeForm implements RoundObserver
 		
 	}
 	
-	/**
-	 * In theory, this is getting a keyboard value in
-	 * int form and will move in whatever direction.
-	 * @param key
-	 */
-	public void move(int key){
-		if (key == 224) // 224 Value for UP
-		{
-			
-		}
-		else if (key == 225) // 225 Value for Down
-		{
-			
-		}
-		else if (key == 226) // 226 Value for Left
-		{
-			
-		}
-		else if (key == 227) // 227 Value for Right
-		{
-			
-		}
-	}
+//	/**
+//	 * In theory, this is getting a keyboard value in
+//	 * int form and will move in whatever direction.
+//	 * @param key
+//	 */
+//	public void move(int key){
+//		if (key == 224) // 224 Value for UP
+//		{
+//			
+//		}
+//		else if (key == 225) // 225 Value for Down
+//		{
+//			
+//		}
+//		else if (key == 226) // 226 Value for Left
+//		{
+//			
+//		}
+//		else if (key == 227) // 227 Value for Right
+//		{
+//			
+//		}
+//	}
+// why is our abstract lifeForm even getting key input????????	
 	
 	/**
 	 * Generic damage calculation

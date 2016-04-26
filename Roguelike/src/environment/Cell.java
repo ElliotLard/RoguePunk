@@ -4,7 +4,7 @@ import lifeform.LifeForm;
 import java.util.ArrayList;
 
 import GUI.GUIConstants;
-import dungeon.displayable;
+import GUI.displayable;
 import item.Item;
 
 
@@ -105,5 +105,9 @@ public class Cell implements displayable
 	public char getRep()
 	{
 		return rep;
+	}
+	public LifeForm getLifeForm()
+	{
+		return inhabitant;
 	}
 }

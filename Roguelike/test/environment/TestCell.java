@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import lifeform.LifeForm;
+import lifeform.Player;
 
 public class TestCell
 {
@@ -18,26 +19,20 @@ public class TestCell
 		assertEquals('1', c.getRep());
 
 	}
-	@Test
-	public void test_addLifeForm_removeLifeForm()
-	{
-		Cell c = new Cell(5, 3, '1');
-		LifeForm l = new LifeForm();
-		assertEquals(5, c.getyLoc());
-		assertEquals(3, c.getxLoc());
-		assertEquals('1', c.getRep());
-	}
-
+//	TODO add back in once lifeForm works
 //	@Test
-//	public void test_addItem_removeItem()
+//	public void test_addLifeForm_GetLifeForm()
 //	{
-//		fail("Not yet implemented");
-//	}
 //
-//	@Test
-//	public void testGetters()
-//	{
-//		fail("Not yet implemented");
+//		Cell c = new Cell(5, 3, '1');
+//		LifeForm player = new Player();
+//		assertNull(c.getLifeForm());
+//		c.addLifeForm(player);
+//		assertEquals(player, c.getLifeForm());
+//		c.removeLifeForm();
+//		assertNull(c.getLifeForm());
 //	}
+
+
 
 }

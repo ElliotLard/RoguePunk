@@ -42,7 +42,7 @@ public class Environment
 		return level;
 	}
 	
-	public void loadLevel(String fileName)
+	private void loadLevel(String fileName)
 	{
 		fileName = "Assets/" + fileName;
 		try

@@ -1,21 +1,16 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import environment.Environment;
 
-public class Window extends JFrame
+public class GameGUI extends JFrame
 {
 	GameSpace gameSpace;
 	
-	public Window()
-	{	
+	public GameGUI()
+	{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setPreferredSize(GUIConstants.WINDOWSIZE);
 		this.setLayout(new BorderLayout());
@@ -26,4 +21,13 @@ public class Window extends JFrame
 		this.pack();
 		this.setVisible(true);
 	}
+
+//	@Override
+//	public void actionPerformed(ActionEvent e)
+//	{
+//		if(e.getActionCommand())
+//		{
+//			textBox.setText(wallButton.getText());
+//		}
+//	}
 }

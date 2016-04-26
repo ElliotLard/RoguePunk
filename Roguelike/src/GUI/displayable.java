@@ -1,4 +1,4 @@
-package dungeon;
+package GUI;
 
 public interface displayable
 {

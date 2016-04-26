@@ -16,4 +16,13 @@ public class TestEnvironment
 		assertFalse(Environment.getTileMap() == null);
 	}
 
+	@Test
+	public void test_addLifeForm_GetLifeForm()
+	{
+		Environment world = Environment.getLevel("testLevel");
+		assertFalse(world == null);
+		assertFalse(Environment.getCell(5, 5) == null);
+		assertFalse(Environment.getTileMap() == null);
+	}
+
 }
