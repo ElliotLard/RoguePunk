@@ -45,11 +45,6 @@ public abstract class LifeForm implements RoundObserver
 		}
 	}
 	
-	public LifeForm()
-	{
-		this("bob", '@', 5, 10, 5);
-	}
-	
 	/**
 	 * This is mostly Commands.
 	 * @param i
@@ -82,6 +77,7 @@ public abstract class LifeForm implements RoundObserver
 	public void updateStats(){
 		
 	}
+
 	
 //	/**
 //	 * In theory, this is getting a keyboard value in
@@ -123,5 +119,11 @@ public abstract class LifeForm implements RoundObserver
 		if (round % 1 == 0){
 			actionPoints[0] = actionPoints[1];
 		}
+	}
+
+	public void move(int key)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

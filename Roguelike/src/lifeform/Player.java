@@ -23,4 +23,29 @@ public class Player extends LifeForm
 		equipPart(starterArms);
 		equipPart(starterLegs);
 	}
+	
+	/**
+	 * In theory, this is getting a keyboard value in
+	 * int form and will move in whatever direction.
+	 * @param key
+	 */
+	@Override
+	public void move(int key){
+		if (key == 224) // 224 Value for UP
+		{
+			
+		}
+		else if (key == 225) // 225 Value for Down
+		{
+			
+		}
+		else if (key == 226) // 226 Value for Left
+		{
+			
+		}
+		else if (key == 227) // 227 Value for Right
+		{
+			
+		}
+	}
 }
