@@ -10,10 +10,10 @@ import environment.Environment;
 public class GameState extends DisplayState
 {
 	DungeonAdapter adapter;
-	public static TileEdit tiles[][];
-	public GameState()
+	public static GameTile tiles[][];
+	public GameState(Game g)
 	{
-		//super();
+		super(g);
 		adapter = new DungeonAdapter();
 		displayPanel = new JPanel(new GridLayout(Environment.HEIGHT, Environment.WIDTH));
 		displayPanel.setPreferredSize(GUIConstants.PLAYSPACESIZE);
@@ -24,12 +24,12 @@ public class GameState extends DisplayState
 	private void fill()
 	{
 		char[][] tileMap = adapter.getMap();
-		tiles = new TileEdit[Environment.HEIGHT][Environment.WIDTH];
+		tiles = new GameTile[Environment.HEIGHT][Environment.WIDTH];
 		for(int y = 0;y < Environment.HEIGHT;y++)
 		{
 			for(int x = 0;x < Environment.WIDTH;x++)
 			{
-				tiles[y][x] = new TileEdit(y, x, tileMap[y][x]);
+				tiles[y][x] = new GameTile(y, x, tileMap[y][x]);
 				displayPanel.add(tiles[y][x].get());
 			}
 		}
@@ -44,10 +44,6 @@ public class GameState extends DisplayState
 	{
 		displayPanel.removeAll();
 		fill();
-	}
-	public JPanel get()
-	{
-		return displayPanel;
 	}
 
 }

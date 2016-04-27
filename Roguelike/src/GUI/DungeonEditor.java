@@ -70,8 +70,10 @@ public class DungeonEditor extends JFrame implements ActionListener
 		this.setPreferredSize(GUIConstants.WINDOWSIZE);
 		this.setLayout(new BorderLayout());
 
-		gameSpace = new GameState();
+		gameSpace = new GameState(null);
 
+		
+		
 		this.add(gameSpace.get(), BorderLayout.WEST);
 		this.add(options, BorderLayout.EAST);
 		this.pack();

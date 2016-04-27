@@ -15,20 +15,29 @@ public class Game implements KeyListener
 	
 	public Game()
 	{
+		state = new MenuState(this);
 		game = new JFrame();
-		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		game.setPreferredSize(GUIConstants.WINDOWSIZE);
-		game.setLayout(new BorderLayout());
-		state = new GameState();
-		game.add(state.getFrame(), BorderLayout.WEST);
-		game.pack();
-		game.setVisible(true);
-		game.addKeyListener(this);;
+		update();
 	}
 	public void changeState(DisplayState s)
 	{
+		game.remove(state.get());
 		state = s;
+		//game.removeAll();
+		update();
 	}
+
+	public void update()
+	{
+		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		game.setPreferredSize(GUIConstants.WINDOWSIZE);
+		game.setLayout(new BorderLayout());
+		game.add(state.get(), BorderLayout.WEST);
+		game.pack();
+		game.setVisible(true);
+		game.addKeyListener(this);
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
