@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
-import GUI.GameSpace;
+import GUI.GameState;
 import environment.Environment;
 
 public class dungeonUtility

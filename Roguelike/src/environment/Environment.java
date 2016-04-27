@@ -16,15 +16,6 @@ public class Environment
 	private Environment(String fileName)
 	{
 		tileMap = new Cell[HEIGHT][WIDTH];
-//		for (int y = 0; y < HEIGHT; y++)
-//		{
-//			{
-//				for (int x = 0; x < Environment.WIDTH; x++)
-//				{
-//					tileMap[y][x] = new Cell(y, x, '.');
-//				}
-//			}
-//		}
 		loadLevel(fileName);
 	}
 	/**

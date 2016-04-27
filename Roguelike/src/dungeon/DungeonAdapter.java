@@ -4,14 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import GUI.GameSpace;
+import GUI.GameState;
 import environment.Environment;
 
 public class DungeonAdapter
 {
-	public static char[][] tileMap = new char[Environment.HEIGHT][Environment.WIDTH];
+	private char[][] tileMap = new char[Environment.HEIGHT][Environment.WIDTH];
 	
-	public static char[][] getMap()
+	public char[][] getMap()
 	{
 		for(int y = 0;y < Environment.HEIGHT;y++)
 		{
@@ -23,7 +23,7 @@ public class DungeonAdapter
 		return tileMap;
 	}
 	
-	public static void writeDungeon(String fileName) throws FileNotFoundException, UnsupportedEncodingException
+	public void writeDungeon(String fileName) throws FileNotFoundException, UnsupportedEncodingException
 	{
 		fileName = "Assets/" + fileName;
 		PrintWriter writer;
@@ -34,7 +34,7 @@ public class DungeonAdapter
 			{
 				for (int x = 0; x < Environment.WIDTH; x++)
 				{
-					tileMap[y][x] = GameSpace.tiles[y][x].getRep();
+					tileMap[y][x] = GameState.tiles[y][x].getRep();
 					writer.print(tileMap[y][x] + " ");
 				}
 				writer.println();

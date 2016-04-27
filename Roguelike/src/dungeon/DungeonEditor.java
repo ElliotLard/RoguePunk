@@ -16,11 +16,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import GUI.GUIConstants;
-import GUI.GameSpace;
+import GUI.GameState;
 
 public class DungeonEditor extends JFrame implements ActionListener
 {
-	GameSpace gameSpace;
+	GameState gameSpace;
 	JButton wallButton;
 	JButton emptyButton;
 	JButton enemyButton;
@@ -73,9 +73,9 @@ public class DungeonEditor extends JFrame implements ActionListener
 		this.setPreferredSize(GUIConstants.WINDOWSIZE);
 		this.setLayout(new BorderLayout());
 
-		gameSpace = new GameSpace();
+		gameSpace = new GameState();
 
-		this.add(gameSpace, BorderLayout.WEST);
+		this.add(gameSpace.update(), BorderLayout.WEST);
 		this.add(options, BorderLayout.EAST);
 		this.pack();
 		this.setVisible(true);
@@ -116,7 +116,8 @@ public class DungeonEditor extends JFrame implements ActionListener
 			
 			try
 			{
-				DungeonAdapter.writeDungeon(fileName.getText());
+				DungeonAdapter writer = new DungeonAdapter();
+				writer.writeDungeon(fileName.getText());
 			} catch (FileNotFoundException | UnsupportedEncodingException e1)
 			{
 				// TODO Auto-generated catch block
