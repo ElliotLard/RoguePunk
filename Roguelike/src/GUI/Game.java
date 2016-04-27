@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 import command.InvokerBuilder;
+import environment.Environment;
 import lifeform.LifeForm;
 import lifeform.Player;
 
@@ -22,6 +23,7 @@ public class Game implements KeyListener
 		LifeForm player = new Player();
 		InvokerBuilder builder = new InvokerBuilder(player);
 		KeyListener listener = builder.getInvoker().getKeyListener();
+		Environment.getCell(30, 40).addLifeForm(player);
 		state = new MenuState(this);
 		game = new JFrame();
 		game.addKeyListener(listener);

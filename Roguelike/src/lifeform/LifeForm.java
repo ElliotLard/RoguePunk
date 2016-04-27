@@ -2,6 +2,7 @@ package lifeform;
 
 import java.util.ArrayList;
 
+import environment.Cell;
 import gameplay.RoundObserver;
 import item.BodyPart;
 import item.Item;
@@ -18,12 +19,14 @@ public abstract class LifeForm implements RoundObserver
 {
 	int[] healthPoints = new int[2]; // [0] is current HP, [1] is max HP
 	int[] actionPoints = new int[2]; // [0] is current AP, [1] is max AP
-	ArrayList<Item> Bodyparts; // Head, Torso, Arms, Legs
-	ArrayList<Item> Inventory;
+	ArrayList<Item> Bodyparts = new ArrayList<Item>(); // Head, Torso, Arms, Legs
+	ArrayList<Item> Inventory = new ArrayList<Item>();
 	
 	int strength, speed;
 	char rep; // How the LifeForm will appear on screen.
 	String myName;
+	
+	Cell location;
 	
 	/**
 	 * Every LifeForm spawns with 4 items equipped.
@@ -32,10 +35,6 @@ public abstract class LifeForm implements RoundObserver
 	 * @param health
 	 * @param strength
 	 * @param speed
-	 * @param head
-	 * @param torso
-	 * @param arms
-	 * @param legs
 	 */
 	public LifeForm(String name, char rep, int health, int strength, int speed)
 	{
@@ -95,9 +94,29 @@ public abstract class LifeForm implements RoundObserver
 		}
 	}
 
-	public void move(int key)
-	{
-		// TODO Auto-generated method stub
+	public void move(int key){
 		
+	}
+	
+	public void moveLifeForm(Cell c)
+	{
+		if (location != null)
+			location.removeLifeForm();
+		location = c;
+		c.addLifeForm(this);
+	}
+	
+	public Cell getCell(){
+		return location;
+	}
+	
+	public int getyLocation()
+	{
+		return location.getyLoc();
+	}
+
+	public int getxLocation()
+	{
+		return location.getxLoc();
 	}
 }

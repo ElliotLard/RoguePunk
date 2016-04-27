@@ -1,5 +1,7 @@
 package lifeform;
 
+import environment.Cell;
+import environment.Environment;
 import item.BodyPart;
 import item.Item;
 
@@ -14,7 +16,7 @@ public class Player extends LifeForm
 	
 	public Player(){
 		super("Player", '@', 100, 10, 10);
-		/*
+		
 		Item starterHead = new BodyPart();
 		Item starterTorso = new BodyPart();
 		Item starterArms = new BodyPart();
@@ -23,31 +25,39 @@ public class Player extends LifeForm
 		equipPart(starterTorso);
 		equipPart(starterArms);
 		equipPart(starterLegs);
-		*/
 	}
 	
 	/**
-	 * In theory, this is getting a keyboard value in
-	 * int form and will move in whatever direction.
+	 * Gets a keyboard value in int form and 
+	 * will move in whatever direction.
 	 * @param key
 	 */
+
 	@Override
 	public void move(int key){
-		if (key == 224) // 224 Value for UP
+		if (key == 38) // 38 Value for UP
 		{
-			
+			Cell up = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
+			moveLifeForm(up);
+			System.out.println("Up");
 		}
-		else if (key == 225) // 225 Value for Down
+		else if (key == 40) // 40 Value for Down
 		{
-			
+			Cell down = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
+			moveLifeForm(down);
+			System.out.println("Down");
 		}
-		else if (key == 226) // 226 Value for Left
+		else if (key == 37) // 37 Value for Left
 		{
-			
+			Cell left = Environment.getCell(this.getyLocation()-1, this.getxLocation());
+			moveLifeForm(left);
+			System.out.println("Left");
 		}
-		else if (key == 227) // 227 Value for Right
+		else if (key == 39) // 39 Value for Right
 		{
-			
+			Cell right = Environment.getCell(this.getyLocation()+1, this.getxLocation());
+			moveLifeForm(right);
+			System.out.println("Right");
 		}
 	}
 }
