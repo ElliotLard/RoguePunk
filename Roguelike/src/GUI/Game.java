@@ -34,12 +34,16 @@ public class Game implements KeyListener
 	{
 		if(e.getKeyChar() == 'w')
 			System.out.println("move up");
-		if(e.getKeyChar() == 'a')
+		else if(e.getKeyChar() == 'a')
 			System.out.println("move left");
-		if(e.getKeyChar() == 's')
+		else if(e.getKeyChar() == 's')
 			System.out.println("move down");
-		if(e.getKeyChar() == 'd')
+		else if(e.getKeyChar() == 'd')
 			System.out.println("move right");
+		else if(e.getKeyChar() == ' ')
+			System.out.println("pressed space");
+		else
+			System.out.println(e);
 	}
 	@Override
 	public void keyPressed(KeyEvent e)

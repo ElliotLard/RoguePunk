@@ -4,9 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
-import dungeon.DungeonMaker;
-import dungeon.dungeonUtility;
-
 public class Environment
 {
 	public static final int HEIGHT = 60, WIDTH = 80;

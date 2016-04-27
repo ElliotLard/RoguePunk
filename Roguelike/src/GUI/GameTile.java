@@ -1,13 +1,11 @@
 package GUI;
 
 import java.awt.Color;
-import java.awt.Dimension;
-
 import javax.swing.JLabel;
 
 public class GameTile
 {
-	private JLabel gameTile;
+	protected JLabel gameTile;
 	public GameTile(int y, int x,char rep)
 	{
 		gameTile = new JLabel();

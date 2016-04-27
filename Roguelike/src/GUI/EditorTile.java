@@ -7,14 +7,11 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
-import dungeon.DungeonAdapter;
-import dungeon.DungeonEditor;
-
-public class Tile extends JLabel implements MouseListener
+public class EditorTile extends JLabel implements MouseListener
 {
 	public static boolean isPressed = false;
 	Dimension index;
-	public Tile(int y, int x,char rep)
+	public EditorTile(int y, int x,char rep)
 	{
 		this.setPreferredSize(GUIConstants.TILEDIMENSION);
 		this.setText(String.valueOf(rep));
@@ -30,17 +27,17 @@ public class Tile extends JLabel implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
-		Tile.isPressed = true;
+		EditorTile.isPressed = true;
 	}
 	@Override
 	public void mouseReleased(MouseEvent e)
 	{
-		Tile.isPressed = false;
+		EditorTile.isPressed = false;
 	}
 	@Override
 	public void mouseEntered(MouseEvent e)
 	{
-		if(Tile.isPressed)
+		if(EditorTile.isPressed)
 		{
 			String rep = DungeonEditor.getRep();
 			this.setText(rep);

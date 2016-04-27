@@ -5,13 +5,12 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
-import dungeon.DungeonAdapter;
 import environment.Environment;
 
 public class GameState extends DisplayState
 {
 	DungeonAdapter adapter;
-	public static GameTile tiles[][];
+	public static TileEdit tiles[][];
 	public GameState()
 	{
 		//super();
@@ -25,12 +24,12 @@ public class GameState extends DisplayState
 	private void fill()
 	{
 		char[][] tileMap = adapter.getMap();
-		tiles = new GameTile[Environment.HEIGHT][Environment.WIDTH];
+		tiles = new TileEdit[Environment.HEIGHT][Environment.WIDTH];
 		for(int y = 0;y < Environment.HEIGHT;y++)
 		{
 			for(int x = 0;x < Environment.WIDTH;x++)
 			{
-				tiles[y][x] = new GameTile(y, x, tileMap[y][x]);
+				tiles[y][x] = new TileEdit(y, x, tileMap[y][x]);
 				displayPanel.add(tiles[y][x].get());
 			}
 		}
@@ -45,6 +44,10 @@ public class GameState extends DisplayState
 	{
 		displayPanel.removeAll();
 		fill();
+	}
+	public JPanel get()
+	{
+		return displayPanel;
 	}
 
 }

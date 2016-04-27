@@ -1,4 +1,4 @@
-package dungeon;
+package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,9 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import GUI.GUIConstants;
-import GUI.GameState;
 
 public class DungeonEditor extends JFrame implements ActionListener
 {
@@ -75,7 +72,7 @@ public class DungeonEditor extends JFrame implements ActionListener
 
 		gameSpace = new GameState();
 
-		this.add(gameSpace.update(), BorderLayout.WEST);
+		this.add(gameSpace.get(), BorderLayout.WEST);
 		this.add(options, BorderLayout.EAST);
 		this.pack();
 		this.setVisible(true);

@@ -1,10 +1,9 @@
-package dungeon;
+package GUI;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import GUI.GameState;
 import environment.Environment;
 
 public class DungeonAdapter
