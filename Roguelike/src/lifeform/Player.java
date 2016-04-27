@@ -14,6 +14,7 @@ public class Player extends LifeForm
 	
 	public Player(){
 		super("Player", '@', 100, 10, 10);
+		/*
 		Item starterHead = new BodyPart();
 		Item starterTorso = new BodyPart();
 		Item starterArms = new BodyPart();
@@ -22,6 +23,7 @@ public class Player extends LifeForm
 		equipPart(starterTorso);
 		equipPart(starterArms);
 		equipPart(starterLegs);
+		*/
 	}
 	
 	/**

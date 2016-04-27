@@ -19,16 +19,20 @@ public class MyKeyListener implements KeyListener
 		int entered = e.getKeyCode();
 		switch (entered){
 		case KeyEvent.VK_UP:
-			move.execute(KeyEvent.VK_UP);
+			System.out.println("Up");
+//			move.execute(KeyEvent.VK_UP);
 			break;
 		case KeyEvent.VK_DOWN:
-			move.execute(KeyEvent.VK_DOWN);
+			System.out.println("Down");
+//			move.execute(KeyEvent.VK_DOWN);
 			break;
 		case KeyEvent.VK_LEFT:
-			move.execute(KeyEvent.VK_LEFT);
+			System.out.println("Left");
+//			move.execute(KeyEvent.VK_LEFT);
 			break;
 		case KeyEvent.VK_RIGHT:
-			move.execute(KeyEvent.VK_RIGHT);
+			System.out.println("Right");
+//			move.execute(KeyEvent.VK_RIGHT);
 			break;
 		}
 	}

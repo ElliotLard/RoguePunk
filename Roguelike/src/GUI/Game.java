@@ -6,6 +6,10 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
+import command.InvokerBuilder;
+import lifeform.LifeForm;
+import lifeform.Player;
+
 
 public class Game implements KeyListener
 {
@@ -15,8 +19,13 @@ public class Game implements KeyListener
 	
 	public Game()
 	{
+		LifeForm player = new Player();
+		InvokerBuilder builder = new InvokerBuilder(player);
+		KeyListener listener = builder.getInvoker().getKeyListener();
 		state = new MenuState(this);
 		game = new JFrame();
+		game.addKeyListener(listener);
+		game.setFocusable(true);
 		update();
 	}
 	public void changeState(DisplayState s)
@@ -35,7 +44,6 @@ public class Game implements KeyListener
 		game.add(state.get(), BorderLayout.WEST);
 		game.pack();
 		game.setVisible(true);
-		game.addKeyListener(this);
 	}
 	
 	@Override
