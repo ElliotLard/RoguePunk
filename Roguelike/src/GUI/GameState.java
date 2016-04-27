@@ -41,11 +41,10 @@ public class GameState extends DisplayState
 		return tiles[y][x];
 	}
 
-	@Override
-	public JPanel update()
+	public void update()
 	{
+		displayPanel.removeAll();
 		fill();
-		return displayPanel;
 	}
 
 }
