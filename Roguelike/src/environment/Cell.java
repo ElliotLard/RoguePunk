@@ -4,11 +4,11 @@ import lifeform.LifeForm;
 import java.util.ArrayList;
 
 import GUI.GUIConstants;
-import GUI.displayable;
+import GUI.Displayable;
 import item.Item;
 
 
-public class Cell implements displayable
+public class Cell implements Displayable
 {	
 	int xLoc, yLoc;
 	LifeForm inhabitant;

@@ -1,6 +1,6 @@
 package GUI;
 
-public interface displayable
+public interface Displayable
 {
 	public char getRep();
 }

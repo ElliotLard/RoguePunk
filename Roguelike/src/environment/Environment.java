@@ -30,6 +30,7 @@ public class Environment
 		return level;
 	}
 	
+	@SuppressWarnings("resource")
 	private void loadLevel(String fileName)
 	{
 		fileName = "Assets/" + fileName;
