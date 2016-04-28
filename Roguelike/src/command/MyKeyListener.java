@@ -2,9 +2,6 @@ package command;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import GUI.DisplayState;
-import GUI.GameState;
 import lifeform.LifeForm;
 
 public class MyKeyListener implements KeyListener
@@ -44,8 +41,7 @@ public class MyKeyListener implements KeyListener
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 }

@@ -8,7 +8,6 @@ import item.Item;
 
 public class Player extends LifeForm
 {
-	DisplayState state;
 	Item head, torso, arms, legs;
 
 	public Player(String name, char rep, int health, int strength, int speed)
@@ -37,7 +36,6 @@ public class Player extends LifeForm
 
 	@Override
 	public void move(int key){
-		state.updateGame();
 		if (key == 38) // 38 Value for UP
 		{
 			Cell up = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
@@ -62,10 +60,5 @@ public class Player extends LifeForm
 			moveLifeForm(right);
 			System.out.println("Right");
 		}
-	}
-	
-	public void setState(DisplayState s)
-	{
-		state = s;
 	}
 }

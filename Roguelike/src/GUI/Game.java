@@ -16,16 +16,8 @@ public class Game
 	
 	public Game()
 	{
-		Player player = new Player();
-		InvokerBuilder builder = new InvokerBuilder(player);
-		KeyListener listener = builder.getInvoker().getKeyListener();
 		state = new MenuState(this);
-		state.setPlayer(player);
-		player.setState(state);
 		game = new JFrame();
-		game.addKeyListener(listener);
-		game.setFocusable(true);
-		player.moveLifeForm(Environment.getCell(30, 40));
 		update();
 
 	}

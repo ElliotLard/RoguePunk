@@ -2,10 +2,13 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
+import command.InvokerBuilder;
 import environment.Environment;
+import lifeform.Player;
 
 public class GameState extends DisplayState
 {
@@ -19,6 +22,15 @@ public class GameState extends DisplayState
 		displayPanel.setPreferredSize(GUIConstants.PLAYSPACESIZE);
 		displayPanel.setBackground(Color.BLACK);
 		fill();
+		
+		Player player = new Player();
+		InvokerBuilder builder = new InvokerBuilder(player);
+		KeyListener listener = builder.getInvoker().getKeyListener();
+		this.get().addKeyListener(listener);
+		this.get().setFocusable(true);
+		player.moveLifeForm(Environment.getCell(30, 40));
+		
+		
 	}
 	private void fill()
 	{
@@ -54,5 +66,4 @@ public class GameState extends DisplayState
 		displayPanel.removeAll();
 		fill();
 	}
-
 }

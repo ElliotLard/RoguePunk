@@ -8,8 +8,6 @@ public class DisplayState
 {
 	public Game game;
 	JPanel displayPanel;
-	Player player;
-	
 	public DisplayState(Game g)
 	{
 		game = g;
@@ -21,17 +19,11 @@ public class DisplayState
 	public void changeState(DisplayState s)
 	{
 		game.changeState(s);
-		player.setState(this);
 	}
 	
 	public JPanel get()
 	{
 		return displayPanel;
-	}
-	
-	public void setPlayer(Player p)
-	{
-		player = p;
 	}
 
 }
