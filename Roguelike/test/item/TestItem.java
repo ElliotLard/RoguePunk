@@ -38,17 +38,17 @@ public class TestItem
 		Item potion = new HealingItem();
 		LifeForm timmy = new Monster();
 
-		assertEquals(timmy.getCurHP(), timmy.getMaxHP());
+		assertEquals(timmy.getCurhp(), timmy.getCurhp());
 
 		timmy.takeDamage(1);
 
-		assertEquals((timmy.getMaxHP() - 1), timmy.getCurHP());
+		assertEquals((timmy.getCurhp() - 1), timmy.getCurhp());
 
 		potion.PickedUp(timmy);
 
 		potion.UseItem();
 
-		assertEquals(timmy.getCurHP(), timmy.getMaxHP());
+		assertEquals(timmy.getCurhp(), timmy.getCurhp());
 
 	}
 

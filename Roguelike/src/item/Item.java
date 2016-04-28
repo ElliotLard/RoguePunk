@@ -8,7 +8,7 @@ import lifeform.LifeForm;
 public abstract class Item
 {
 	//All characteristics of items; set to protected so any Item can access them freely
-	protected int STR, HP, SPD, rarity, uses;
+	protected int str, hp, spd, rarity, uses;
 	protected char rep;
 	protected String name, description;
 	protected LifeForm hold = null;
@@ -20,9 +20,9 @@ public abstract class Item
 		uses = u;
 		name = n;
 		description = d;
-		STR = 0;
-		HP = 0;
-		SPD = 0;
+		str = 0;
+		hp = 0;
+		spd = 0;
 		rep = 'i';
 	}
 	
@@ -46,17 +46,17 @@ public abstract class Item
 	
 	public int getSTR()
 	{
-		return STR;
+		return str;
 	}
 
 	public int getHP()
 	{
-		return HP;
+		return hp;
 	}
 
 	public int getSPD()
 	{
-		return SPD;
+		return spd;
 	}
 
 	public int getRarity()

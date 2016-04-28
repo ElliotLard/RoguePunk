@@ -18,12 +18,12 @@ import item.Item;
 
 public abstract class LifeForm implements RoundObserver, Displayable
 {
-	int[] HP = new int[2]; // [0] is current HP, [1] is max HP
-	int[] AP = new int[2]; // [0] is current AP, [1] is max AP
+	int[] hp = new int[2]; // [0] is current hp, [1] is max hp
+	int[] ap = new int[2]; // [0] is current ap, [1] is max ap
 	ArrayList<Item> Bodyparts = new ArrayList<Item>(); // Head, Torso, Arms, Legs
 	ArrayList<Item> Inventory = new ArrayList<Item>();
 	
-	int STR, SPD;
+	int str, spd;
 	char rep; // How the LifeForm will appear on screen.
 	String myName;
 	
@@ -40,8 +40,8 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	public LifeForm(String name, char rep, Item head, Item torso, Item arms,
 			Item legs)
 	{
-		HP[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
-		HP[1] = HP[0];
+		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		hp[1] = hp[0];
 	}
 	
 	public LifeForm(){}
@@ -84,11 +84,11 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param damage
 	 */
 	public void takeDamage(int damage){
-		HP[0] -= damage;
-		if(HP[0]<0)
-			HP[0]=0;
-		if(HP[0]>HP[1])
-			HP[0] = HP[1];
+		hp[0] -= damage;
+		if(hp[0]<0)
+			hp[0]=0;
+		if(hp[0]>hp[1])
+			hp[0] = hp[1];
 	}
 	
 	/**
@@ -96,7 +96,7 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 */
 	public void updateRound(int round){
 		if (round % 1 == 0){
-			AP[0] = AP[1];
+			ap[0] = ap[1];
 		}
 	}
 
@@ -126,14 +126,14 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		return location.getxLoc();
 	}
 	
-	public int getCurHP()
+	public int getCurhp()
 	{
-		return HP[0];
+		return hp[0];
 	}
 	
-	public int getMaxHP()
+	public int getMaxhp()
 	{
-		return HP[1];
+		return hp[1];
 	}
 	
 	@Override
