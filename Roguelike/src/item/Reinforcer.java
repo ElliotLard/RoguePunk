@@ -35,13 +35,13 @@ public class Reinforcer extends Item
 		if(uses>0&&!(item.name.contains("+5")))
 		{
 			//Increases the strength of the item
-			item.STR+=Modifier;
-			//For every 5 points it increases the HP stat on an item
-			if(item.STR==(item.HP+1)*5||item.STR>(item.HP+1)*5)
-				item.HP++;
-			//For every 50 points of STR + HP increases the SPD by one
-			if((item.STR+item.HP)==(item.SPD+1)*50||(item.STR+item.HP)>(item.SPD+1)*50)
-				item.SPD++;
+			item.str+=Modifier;
+			//For every 5 points it increases the hp stat on an item
+			if(item.str==(item.hp+1)*5||item.str>(item.hp+1)*5)
+				item.hp++;
+			//For every 50 points of str + hp increases the spd by one
+			if((item.str+item.hp)==(item.spd+1)*50||(item.str+item.hp)>(item.spd+1)*50)
+				item.spd++;
 
 			//Changes the name to fit the class of reinforcement it is
 			if(item.name.contains("+1"))

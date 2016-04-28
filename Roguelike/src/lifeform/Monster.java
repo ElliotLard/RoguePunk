@@ -28,11 +28,11 @@ public class Monster extends LifeForm
 		Bodyparts.add(legs);
 		
 		//Sets the monsters default stats; THEY WILL VARY EACH TIME
-		STR = (head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR())/(10/difficulty);
-		SPD = (head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD())/(10/difficulty);
-		HP[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP())/(5/difficulty);
-		HP[1] = HP[0];
-		AP[0] = 1;
-		AP[1] = AP[0];
+		str = (head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR())/(10/difficulty);
+		spd = (head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD())/(10/difficulty);
+		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP())/(5/difficulty);
+		hp[1] = hp[0];
+		ap[0] = 1;
+		ap[1] = ap[0];
 	}
 }
