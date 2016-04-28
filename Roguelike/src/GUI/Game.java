@@ -1,14 +1,10 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JFrame;
-
 import command.InvokerBuilder;
 import environment.Environment;
-import lifeform.LifeForm;
 import lifeform.Player;
 
 
@@ -20,15 +16,18 @@ public class Game
 	
 	public Game()
 	{
-		LifeForm player = new Player();
+		Player player = new Player();
 		InvokerBuilder builder = new InvokerBuilder(player);
 		KeyListener listener = builder.getInvoker().getKeyListener();
 		state = new MenuState(this);
+		state.setPlayer(player);
+		player.setState(state);
 		game = new JFrame();
 		game.addKeyListener(listener);
 		game.setFocusable(true);
-		update();
 		player.moveLifeForm(Environment.getCell(30, 40));
+		update();
+
 	}
 	public void changeState(DisplayState s)
 	{

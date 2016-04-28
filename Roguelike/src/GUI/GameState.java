@@ -20,7 +20,6 @@ public class GameState extends DisplayState
 		displayPanel.setBackground(Color.BLACK);
 		fill();
 	}
-
 	private void fill()
 	{
 		char[][] tileMap = adapter.getMap();
@@ -33,11 +32,10 @@ public class GameState extends DisplayState
 				displayPanel.add(tiles[y][x].get());
 			}
 		}
-	}
-
-	
+	}	
 	public void updateGame()
 	{
+		System.out.println("good");
 		char [][] tileMap = adapter.getMap();
 		for(int y = 0;y < Environment.HEIGHT;y++)
 		{
@@ -47,12 +45,10 @@ public class GameState extends DisplayState
 			}
 		}
 	}
-	
 	public GameTile getTile(int y, int x)
 	{
 		return tiles[y][x];
 	}
-
 	public void update()
 	{
 		displayPanel.removeAll();

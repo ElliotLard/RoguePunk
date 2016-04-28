@@ -7,13 +7,12 @@ public class InvokerBuilder
 {
 	static Invoker invoker;
 	
-	public InvokerBuilder(LifeForm player)
+	public InvokerBuilder(Player player)
 	{
-		player = player;
 		invoker = new Invoker(player);
 	}
 	
-	public static Invoker getInvoker(){
+	public Invoker getInvoker(){
 		return invoker;
 	}
 }

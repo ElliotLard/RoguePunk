@@ -10,7 +10,6 @@ import lifeform.LifeForm;
 public class MyKeyListener implements KeyListener
 {
 	LifeForm player;
-	DisplayState state;
 
 	public MyKeyListener(LifeForm player){
 		this.player = player;
@@ -19,24 +18,19 @@ public class MyKeyListener implements KeyListener
 	public void keyPressed(KeyEvent e)
 	{
 		Command move = new Move(player);
-		
 		int entered = e.getKeyCode();
 		switch (entered){
 		case KeyEvent.VK_UP:
 			move.execute(KeyEvent.VK_UP);
-			state.updateGame();
 			break;
 		case KeyEvent.VK_DOWN:
 			move.execute(KeyEvent.VK_DOWN);
-			state.updateGame();
 			break;
 		case KeyEvent.VK_LEFT:
 			move.execute(KeyEvent.VK_LEFT);
-			state.updateGame();
 			break;
 		case KeyEvent.VK_RIGHT:
 			move.execute(KeyEvent.VK_RIGHT);
-			state.updateGame();
 			break;
 		}
 	}
@@ -53,8 +47,5 @@ public class MyKeyListener implements KeyListener
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public void setGameState(DisplayState state){
-		this.state = state;
-	}
+
 }

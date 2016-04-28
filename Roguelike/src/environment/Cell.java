@@ -104,6 +104,8 @@ public class Cell implements Displayable
 	@Override
 	public char getRep()
 	{
+		if(inhabitant != null)
+			return inhabitant.getRep();
 		return rep;
 	}
 	public LifeForm getLifeForm()
