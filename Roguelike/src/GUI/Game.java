@@ -23,12 +23,12 @@ public class Game
 		LifeForm player = new Player();
 		InvokerBuilder builder = new InvokerBuilder(player);
 		KeyListener listener = builder.getInvoker().getKeyListener();
-		Environment.getCell(30, 40).addLifeForm(player);
 		state = new MenuState(this);
 		game = new JFrame();
 		game.addKeyListener(listener);
 		game.setFocusable(true);
 		update();
+		player.moveLifeForm(Environment.getCell(30, 40));
 	}
 	public void changeState(DisplayState s)
 	{

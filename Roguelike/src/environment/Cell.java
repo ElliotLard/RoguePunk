@@ -41,7 +41,7 @@ public class Cell implements Displayable
 	 */
 	public void addLifeForm(LifeForm lifeForm)
 	{
-		if(inhabitant != null)
+		if(inhabitant == null)
 			inhabitant = lifeForm;
 		else
 			System.out.println("cell occupied");

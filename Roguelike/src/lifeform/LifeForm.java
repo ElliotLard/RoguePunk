@@ -2,6 +2,7 @@ package lifeform;
 
 import java.util.ArrayList;
 
+import GUI.Displayable;
 import environment.Cell;
 import gameplay.RoundObserver;
 import item.BodyPart;
@@ -15,7 +16,7 @@ import item.Item;
  *
  */
 
-public abstract class LifeForm implements RoundObserver
+public abstract class LifeForm implements RoundObserver, Displayable
 {
 	int[] HP = new int[2]; // [0] is current HP, [1] is max HP
 	int[] AP = new int[2]; // [0] is current AP, [1] is max AP
@@ -133,5 +134,11 @@ public abstract class LifeForm implements RoundObserver
 	public int getMaxHP()
 	{
 		return HP[1];
+	}
+	
+	@Override
+	public char getRep()
+	{
+		return rep;
 	}
 }
