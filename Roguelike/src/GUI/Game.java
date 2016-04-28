@@ -12,7 +12,7 @@ import lifeform.LifeForm;
 import lifeform.Player;
 
 
-public class Game implements
+public class Game
 {
 	JFrame game;
 	DisplayState state;

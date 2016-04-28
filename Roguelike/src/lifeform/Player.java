@@ -11,11 +11,11 @@ public class Player extends LifeForm
 
 	public Player(String name, char rep, int health, int strength, int speed)
 	{
-		super(name, rep, health, strength, speed);
+		super();
 	}
 	
 	public Player(){
-		super("Player", '@', 100, 10, 10);
+		super();
 		
 		Item starterHead = new BodyPart();
 		Item starterTorso = new BodyPart();
