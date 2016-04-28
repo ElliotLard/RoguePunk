@@ -1,23 +1,55 @@
 package item;
 
+import static org.junit.Assert.*;
+import item.*;
+import lifeform.*;
+
 import org.junit.Test;
+
+//Author: Aaron Gerber
 
 public class TestItem
 {
+
 	@Test
-	public void testInit()
+	public void testReinforncement()
 	{
-		/**
-		 * Tests creating a default item with
-		 * no special values input.
-		 */
-		/*Item item = new BodyPart(); // Creates a default item with
-								// no special values
-		assertEquals("unnamed", item.name); // Default name is "unnamed"
-		assertEquals(-1, item.type); // Default type is -1
-		assertEquals('%', item.rep); // Default char to represent
-									 // item is '%'
-		assertEquals(5, item.weight);// Default weight is 5*/
-		//update broken test
+		Item potion = new HealingItem();
+		Item reinforcer = new Reinforcer();
+
+		// Tests the default strength to confirm the potion was built correctly
+		assertEquals(0, potion.getSTR());
+
+		potion.Strengthen((Reinforcer) reinforcer);
+
+		// Confirms that the reinforcement worked
+		assertEquals(5, potion.getSTR());
+		assertTrue(potion.getName().contains("+1"));
+
+		potion.Strengthen((Reinforcer) reinforcer);
+
+		// Confirms that the reinforcement failed because it ran out of uses
+		assertEquals(5, potion.getSTR());
 	}
+
+	@Test
+	public void testHealing()
+	{
+		Item potion = new HealingItem();
+		LifeForm timmy = new Monster();
+
+		assertEquals(timmy.getCurHP(), timmy.getMaxHP());
+
+		timmy.takeDamage(1);
+
+		assertEquals((timmy.getMaxHP() - 1), timmy.getCurHP());
+
+		potion.PickedUp(timmy);
+
+		potion.UseItem();
+
+		assertEquals(timmy.getCurHP(), timmy.getMaxHP());
+
+	}
+
 }

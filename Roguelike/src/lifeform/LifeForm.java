@@ -17,12 +17,12 @@ import item.Item;
 
 public abstract class LifeForm implements RoundObserver
 {
-	int[] healthPoints = new int[2]; // [0] is current HP, [1] is max HP
-	int[] actionPoints = new int[2]; // [0] is current AP, [1] is max AP
+	int[] HP = new int[2]; // [0] is current HP, [1] is max HP
+	int[] AP = new int[2]; // [0] is current AP, [1] is max AP
 	ArrayList<Item> Bodyparts = new ArrayList<Item>(); // Head, Torso, Arms, Legs
 	ArrayList<Item> Inventory = new ArrayList<Item>();
 	
-	int strength, speed;
+	int STR, SPD;
 	char rep; // How the LifeForm will appear on screen.
 	String myName;
 	
@@ -36,13 +36,14 @@ public abstract class LifeForm implements RoundObserver
 	 * @param strength
 	 * @param speed
 	 */
-	public LifeForm(String name, char rep, int health, int strength, int speed)
+	public LifeForm(String name, char rep, Item head, Item torso, Item arms,
+			Item legs)
 	{
-		for (int x = 0; x < healthPoints.length; x++)
-		{
-			healthPoints[x] = health;
-		}
+		HP[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		HP[1] = HP[0];
 	}
+	
+	public LifeForm(){}
 	
 	/**
 	 * This is mostly Commands.
@@ -82,7 +83,11 @@ public abstract class LifeForm implements RoundObserver
 	 * @param damage
 	 */
 	public void takeDamage(int damage){
-		healthPoints[0] -= damage;
+		HP[0] -= damage;
+		if(HP[0]<0)
+			HP[0]=0;
+		if(HP[0]>HP[1])
+			HP[0] = HP[1];
 	}
 	
 	/**
@@ -90,7 +95,7 @@ public abstract class LifeForm implements RoundObserver
 	 */
 	public void updateRound(int round){
 		if (round % 1 == 0){
-			actionPoints[0] = actionPoints[1];
+			AP[0] = AP[1];
 		}
 	}
 
@@ -118,5 +123,15 @@ public abstract class LifeForm implements RoundObserver
 	public int getxLocation()
 	{
 		return location.getxLoc();
+	}
+	
+	public int getCurHP()
+	{
+		return HP[0];
+	}
+	
+	public int getMaxHP()
+	{
+		return HP[1];
 	}
 }
