@@ -3,6 +3,7 @@ package command;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import lifeform.LifeForm;
+import lifeform.Player;
 
 public class MyKeyListener implements KeyListener
 {
@@ -11,6 +12,7 @@ public class MyKeyListener implements KeyListener
 	public MyKeyListener(LifeForm player){
 		this.player = player;
 	}
+	
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
