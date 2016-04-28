@@ -25,5 +25,4 @@ public class DisplayState
 	{
 		return displayPanel;
 	}
-
 }

@@ -26,11 +26,9 @@ public class GameState extends DisplayState
 		Player player = new Player();
 		InvokerBuilder builder = new InvokerBuilder(player);
 		KeyListener listener = builder.getInvoker().getKeyListener();
-		this.get().addKeyListener(listener);
-		this.get().setFocusable(true);
-		player.moveLifeForm(Environment.getCell(30, 40));
-		
-		
+		displayPanel.setFocusable(true);
+		displayPanel.addKeyListener(listener);
+		player.moveLifeForm(Environment.getCell(30, 40));	
 	}
 	private void fill()
 	{
@@ -60,10 +58,5 @@ public class GameState extends DisplayState
 	public GameTile getTile(int y, int x)
 	{
 		return tiles[y][x];
-	}
-	public void update()
-	{
-		displayPanel.removeAll();
-		fill();
 	}
 }

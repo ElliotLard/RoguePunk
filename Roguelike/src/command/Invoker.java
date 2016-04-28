@@ -16,8 +16,7 @@ public class Invoker
 		 * addKeyListener(listener);
 		 * setFocusable(true);
 		 */
-	}
-	
+	}	
 	public KeyListener getKeyListener(){
 		return listener;
 	}

@@ -1,11 +1,7 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import java.awt.event.KeyListener;
 import javax.swing.JFrame;
-import command.InvokerBuilder;
-import environment.Environment;
-import lifeform.Player;
 
 
 public class Game
