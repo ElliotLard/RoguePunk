@@ -49,7 +49,4 @@ public class TestCell
 		assertNull(c.getItem(wrench));
 	}
 
-
-
-
 }

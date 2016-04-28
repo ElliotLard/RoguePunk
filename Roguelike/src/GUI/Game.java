@@ -12,7 +12,7 @@ import lifeform.LifeForm;
 import lifeform.Player;
 
 
-public class Game implements KeyListener
+public class Game implements
 {
 	JFrame game;
 	DisplayState state;
@@ -46,34 +46,5 @@ public class Game implements KeyListener
 		game.add(state.get(), BorderLayout.WEST);
 		game.pack();
 		game.setVisible(true);
-	}
-	
-	@Override
-	public void keyTyped(KeyEvent e)
-	{
-		if(e.getKeyChar() == 'w')
-			System.out.println("move up");
-		else if(e.getKeyChar() == 'a')
-			System.out.println("move left");
-		else if(e.getKeyChar() == 's')
-			System.out.println("move down");
-		else if(e.getKeyChar() == 'd')
-			System.out.println("move right");
-		else if(e.getKeyChar() == ' ')
-			System.out.println("pressed space");
-		else
-			System.out.println(e);
-	}
-	@Override
-	public void keyPressed(KeyEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void keyReleased(KeyEvent e)
-	{
-		// TODO Auto-generated method stub
-		
 	}
 }
