@@ -13,6 +13,11 @@ public class GameTile
 		gameTile.setText(String.valueOf(rep));
 		gameTile.setForeground(Color.white);
 	}
+	
+	public void setChar(char c)
+	{
+		gameTile.setText(String.valueOf(c));
+	}
 	public char getRep()
 	{
 		return gameTile.getText().charAt(0);

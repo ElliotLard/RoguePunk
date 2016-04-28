@@ -35,6 +35,19 @@ public class GameState extends DisplayState
 		}
 	}
 
+	
+	public void updateGame()
+	{
+		char [][] tileMap = adapter.getMap();
+		for(int y = 0;y < Environment.HEIGHT;y++)
+		{
+			for(int x = 0;x < Environment.WIDTH;x++)
+			{
+				tiles[y][x].setChar(tileMap[y][x]);
+			}
+		}
+	}
+	
 	public GameTile getTile(int y, int x)
 	{
 		return tiles[y][x];
