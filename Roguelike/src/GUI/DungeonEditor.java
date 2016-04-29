@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 public class DungeonEditor extends JFrame implements ActionListener
 {
-	GameState gameSpace;
+	Editor gameSpace;
 	JButton wallButton;
 	JButton emptyButton;
 	JButton enemyButton;
@@ -70,7 +70,7 @@ public class DungeonEditor extends JFrame implements ActionListener
 		this.setPreferredSize(GUIConstants.WINDOWSIZE);
 		this.setLayout(new BorderLayout());
 
-		gameSpace = new GameState(null);
+		gameSpace = new Editor();
 
 		
 		
