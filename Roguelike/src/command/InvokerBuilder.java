@@ -1,14 +1,13 @@
 package command;
 
 import GUI.Game;
-import lifeform.LifeForm;
 import lifeform.Player;
 
 public class InvokerBuilder
 {
 	static Invoker invoker;
 	
-	public InvokerBuilder(LifeForm player, Game g)
+	public InvokerBuilder(Player player, Game g)
 	{
 		invoker = new Invoker(player, g);
 	}

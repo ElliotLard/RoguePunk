@@ -1,22 +1,19 @@
 package command;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import lifeform.LifeForm;
+import lifeform.Player;
 
 public class Move implements Command
 {
-	LifeForm player;
+	Player player;
 	
-	public Move(LifeForm player){
+	public Move(Player player){
 		this.player = player;
 	}
 
 	@Override
-	public void execute(int enter)
+	public void execute(char key)
 	{
-		player.move(enter);
+		player.move(key);
 		
 	}
 }

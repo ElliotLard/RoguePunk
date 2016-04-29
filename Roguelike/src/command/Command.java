@@ -2,5 +2,5 @@ package command;
 
 public interface Command
 {
-	public void execute(int enter);
+	public void execute(char key);
 }

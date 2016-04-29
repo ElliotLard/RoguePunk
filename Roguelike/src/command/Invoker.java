@@ -3,13 +3,13 @@ package command;
 import java.awt.event.KeyListener;
 
 import GUI.Game;
-import lifeform.LifeForm;
+import lifeform.Player;
 
 public class Invoker 
 {
 	KeyListener listener;
 	
-	public Invoker(LifeForm player, Game g){
+	public Invoker(Player player, Game g){
 		listener = new MyKeyListener(player, g);
 		/**
 		 * Needs to be completed in the GUI.

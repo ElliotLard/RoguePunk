@@ -98,10 +98,6 @@ public abstract class LifeForm implements RoundObserver, Displayable
 			ap[0] = ap[1];
 		}
 	}
-
-	public void move(int key){
-		
-	}
 	
 	public void moveLifeForm(Cell c)
 	{

@@ -34,27 +34,26 @@ public class Player extends LifeForm
 	 * @param key
 	 */
 
-	@Override
-	public void move(int key){
-		if (key == 38) // 38 Value for UP
+	public void move(char key){
+		if (key == 'w')
 		{
 			Cell up = Environment.getCell(this.getyLocation()-1, this.getxLocation());
 			moveLifeForm(up);
 			System.out.println("Up");
 		}
-		else if (key == 40) // 40 Value for Down
+		else if (key == 's')
 		{
 			Cell down = Environment.getCell(this.getyLocation()+1, this.getxLocation());
 			moveLifeForm(down);
 			System.out.println("Down");
 		}
-		else if (key == 37) // 37 Value for Left
+		else if (key == 'a')
 		{
 			Cell left = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
 			moveLifeForm(left);
 			System.out.println("Left");
 		}
-		else if (key == 39) // 39 Value for Right
+		else if (key == 'd')
 		{
 			Cell right = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
 			moveLifeForm(right);

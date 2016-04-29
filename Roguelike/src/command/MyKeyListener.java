@@ -10,10 +10,10 @@ import lifeform.Player;
 public class MyKeyListener implements KeyListener
 {
 	Game game;
-	LifeForm player;
+	Player player;
 	KeyListener myKeyListener;
 
-	public MyKeyListener(LifeForm player, Game g){
+	public MyKeyListener(Player player, Game g){
 		this.player = player;
 		game = g;
 	}
@@ -22,19 +22,19 @@ public class MyKeyListener implements KeyListener
 	public void keyPressed(KeyEvent e)
 	{
 		Command move = new Move(player);
-		int entered = e.getKeyCode();
+		char entered = e.getKeyChar();
 		switch (entered){
-		case KeyEvent.VK_UP:
-			move.execute(KeyEvent.VK_UP);
+		case 'w':
+			move.execute(entered);
 			break;
-		case KeyEvent.VK_DOWN:
-			move.execute(KeyEvent.VK_DOWN);
+		case 's':
+			move.execute(entered);
 			break;
-		case KeyEvent.VK_LEFT:
-			move.execute(KeyEvent.VK_LEFT);
+		case 'a':
+			move.execute(entered);
 			break;
-		case KeyEvent.VK_RIGHT:
-			move.execute(KeyEvent.VK_RIGHT);
+		case 'd':
+			move.execute(entered);
 			break;
 		}
 		game.updateState();
