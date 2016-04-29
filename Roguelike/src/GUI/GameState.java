@@ -40,7 +40,6 @@ public class GameState extends DisplayState implements KeyListener
 	}	
 	public void updateGame()
 	{
-		System.out.println("good");
 		char [][] tileMap = adapter.getMap();
 		for(int y = 0;y < Environment.HEIGHT;y++)
 		{

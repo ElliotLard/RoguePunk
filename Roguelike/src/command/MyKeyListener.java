@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import GUI.Game;
-import lifeform.LifeForm;
 import lifeform.Player;
 
 public class MyKeyListener implements KeyListener

@@ -2,8 +2,6 @@ package environment;
 
 import lifeform.LifeForm;
 import java.util.ArrayList;
-
-import GUI.GUIConstants;
 import GUI.Displayable;
 import item.Item;
 

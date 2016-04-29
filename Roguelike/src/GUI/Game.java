@@ -27,14 +27,11 @@ public class Game
 		game.setFocusable(true);
 		player.moveLifeForm(Environment.getCell(30, 40));	
 		update();
-		System.out.println(player.getRep());
-
 	}
 	public void changeState(DisplayState s)
 	{
 		game.remove(state.get());
 		state = s;
-		//game.removeAll();
 		update();
 	}
 

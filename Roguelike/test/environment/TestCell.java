@@ -35,19 +35,17 @@ public class TestCell
 //		assertNull(c.getLifeForm());
 //	}
 	
-//	TODO add back in once lifeForm works
-	@Test
-	public void test_addItem_getItem_removeLifeForm()
-	{
-		/*
-		Cell c = new Cell(5, 3, '1');
-		Item wrench = new HealingItem();
-		assertNull(c.getItem(wrench));
-		c.addItem(wrench);
-		assertEquals(wrench, c.getItem(wrench));
-		c.removeItem();
-		assertNull(c.getItem(wrench));
-		*/
-	}
+//	TODO add back in once Item works
+//	@Test
+//	public void test_addItem_getItem_removeLifeForm()
+//	{
+//		Cell c = new Cell(5, 3, '1');
+//		Item wrench = new HealingItem();
+//		assertNull(c.getItem(wrench));
+//		c.addItem(wrench);
+//		assertEquals(wrench, c.getItem(wrench));
+//		c.removeItem();
+//		assertNull(c.getItem(wrench));
+//	}
 
 }

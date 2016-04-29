@@ -2,8 +2,6 @@ package GUI;
 
 import javax.swing.JPanel;
 
-import lifeform.Player;
-
 public class DisplayState
 {
 	public Game game;

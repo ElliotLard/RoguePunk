@@ -1,6 +1,4 @@
 package lifeform;
-
-import GUI.DisplayState;
 import environment.Cell;
 import environment.Environment;
 import item.BodyPart;
@@ -40,25 +38,21 @@ public class Player extends LifeForm
 		{
 			Cell up = Environment.getCell(this.getyLocation()-1, this.getxLocation());
 			moveLifeForm(up);
-			System.out.println("Up");
 		}
 		else if (key == 's')
 		{
 			Cell down = Environment.getCell(this.getyLocation()+1, this.getxLocation());
 			moveLifeForm(down);
-			System.out.println("Down");
 		}
 		else if (key == 'a')
 		{
 			Cell left = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
 			moveLifeForm(left);
-			System.out.println("Left");
 		}
 		else if (key == 'd')
 		{
 			Cell right = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
 			moveLifeForm(right);
-			System.out.println("Right");
 		}
 	}
 }

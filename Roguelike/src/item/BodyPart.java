@@ -21,7 +21,7 @@ public class BodyPart extends Item
 	public BodyPart(int s)
 	{
 		super("Generic Body Part","Just a piece of garbage", 1, 1);
-		Random rand = new Random();
+		//Random rand = new Random();  TODO this doesn't do anything
 		BodySlot = s;
 		GenerateStats();
 	}
