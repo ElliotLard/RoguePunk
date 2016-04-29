@@ -38,13 +38,13 @@ public class Player extends LifeForm
 	public void move(int key){
 		if (key == 38) // 38 Value for UP
 		{
-			Cell up = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
+			Cell up = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
 			moveLifeForm(up);
 			System.out.println("Up");
 		}
 		else if (key == 40) // 40 Value for Down
 		{
-			Cell down = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
+			Cell down = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
 			moveLifeForm(down);
 			System.out.println("Down");
 		}
