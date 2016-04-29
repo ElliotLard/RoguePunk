@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
@@ -10,7 +11,7 @@ import command.InvokerBuilder;
 import environment.Environment;
 import lifeform.Player;
 
-public class GameState extends DisplayState
+public class GameState extends DisplayState implements KeyListener
 {
 	DungeonAdapter adapter;
 	public static GameTile tiles[][];
@@ -58,5 +59,24 @@ public class GameState extends DisplayState
 	public GameTile getTile(int y, int x)
 	{
 		return tiles[y][x];
+	}
+	@Override
+	public void keyTyped(KeyEvent e)
+	{
+		this.updateGame();
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyPressed(KeyEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent e)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }
