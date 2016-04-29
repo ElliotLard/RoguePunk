@@ -11,7 +11,7 @@ public class Invoker
 	KeyListener listener;
 	
 	public Invoker(LifeForm player){
-		listener = new MyKeyListener(player);
+		listener = MyKeyListener.getKeyListener(player);
 		/**
 		 * Needs to be completed in the GUI.
 		 * addKeyListener(listener);
