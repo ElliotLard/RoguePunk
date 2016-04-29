@@ -23,13 +23,6 @@ public class GameState extends DisplayState implements KeyListener
 		displayPanel.setPreferredSize(GUIConstants.PLAYSPACESIZE);
 		displayPanel.setBackground(Color.BLACK);
 		fill();
-		
-		Player player = new Player();
-		InvokerBuilder builder = new InvokerBuilder(player);
-		KeyListener listener = builder.getInvoker().getKeyListener();
-		displayPanel.setFocusable(true);
-		displayPanel.addKeyListener(listener);
-		player.moveLifeForm(Environment.getCell(30, 40));	
 	}
 	private void fill()
 	{
