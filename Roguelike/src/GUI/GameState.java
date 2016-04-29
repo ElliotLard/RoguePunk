@@ -6,13 +6,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
-
-import command.InvokerBuilder;
 import environment.Environment;
-import lifeform.Player;
 
 public class GameState extends DisplayState implements KeyListener
 {
+
 	DungeonAdapter adapter;
 	public static GameTile tiles[][];
 	public GameState(Game g)
@@ -23,6 +21,9 @@ public class GameState extends DisplayState implements KeyListener
 		displayPanel.setPreferredSize(GUIConstants.PLAYSPACESIZE);
 		displayPanel.setBackground(Color.BLACK);
 		fill();
+		displayPanel.setVisible(true);
+		displayPanel.addKeyListener(this);
+		displayPanel.setFocusable(true);
 	}
 	private void fill()
 	{
@@ -56,6 +57,7 @@ public class GameState extends DisplayState implements KeyListener
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
+		System.out.println("win");
 		this.updateGame();
 		// TODO Auto-generated method stub
 		

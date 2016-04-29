@@ -19,7 +19,7 @@ public class Game
 	public Game()
 	{
 		Player player = new Player();
-		InvokerBuilder builder = new InvokerBuilder(player);
+		InvokerBuilder builder = new InvokerBuilder(player, this);
 		KeyListener listener = builder.getInvoker().getKeyListener();
 		state = new MenuState(this);
 		game = new JFrame();
@@ -27,6 +27,7 @@ public class Game
 		game.setFocusable(true);
 		player.moveLifeForm(Environment.getCell(30, 40));	
 		update();
+		System.out.println(player.getRep());
 
 	}
 	public void changeState(DisplayState s)
@@ -45,5 +46,13 @@ public class Game
 		game.add(state.get(), BorderLayout.WEST);
 		game.pack();
 		game.setVisible(true);
+	}
+	
+	public void updateState()
+	{
+		if(state instanceof GameState)
+		{
+			state.updateGame();
+		}
 	}
 }

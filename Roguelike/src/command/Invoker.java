@@ -1,17 +1,16 @@
 package command;
 
-import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import GUI.Game;
 import lifeform.LifeForm;
-import lifeform.Player;
 
 public class Invoker 
 {
 	KeyListener listener;
 	
-	public Invoker(LifeForm player){
-		listener = new MyKeyListener(player);
+	public Invoker(LifeForm player, Game g){
+		listener = new MyKeyListener(player, g);
 		/**
 		 * Needs to be completed in the GUI.
 		 * addKeyListener(listener);

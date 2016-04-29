@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import GUI.Displayable;
 import environment.Cell;
 import gameplay.RoundObserver;
-import item.BodyPart;
 import item.Item;
 
 /**
