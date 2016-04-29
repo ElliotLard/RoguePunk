@@ -8,15 +8,10 @@ import lifeform.Player;
 public class MyKeyListener implements KeyListener
 {
 	LifeForm player;
-	private static KeyListener myKeyListener = null;
+	KeyListener myKeyListener;
 
-	public MyKeyListener(){}
-	
-	public static KeyListener getKeyListener(LifeForm player){
-		if (myKeyListener == null){
-			myKeyListener = new MyKeyListener();
-		}
-		return myKeyListener;
+	public MyKeyListener(LifeForm player){
+		this.player = player;
 	}
 	
 	@Override
