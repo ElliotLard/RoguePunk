@@ -3,6 +3,7 @@ package environment;
 import lifeform.LifeForm;
 import java.util.ArrayList;
 import GUI.Displayable;
+import item.BodyPart;
 import item.Item;
 
 
@@ -10,7 +11,7 @@ public class Cell implements Displayable
 {	
 	int xLoc, yLoc;
 	LifeForm inhabitant;
-	private ArrayList<Item> onGround = new ArrayList<Item>();;
+	private ArrayList<BodyPart> onGround = new ArrayList<BodyPart>();;
 	char rep;
 	/**
 	 * @author elliotlard
@@ -55,6 +56,10 @@ public class Cell implements Displayable
 		inhabitant = null;
 	}
 	
+	public BodyPart getItemOnGround(){
+		return onGround.get(0);
+	}
+	
 	/**
 	 * @author elliotlard
 	 * 
@@ -62,7 +67,7 @@ public class Cell implements Displayable
 	 * 
 	 * @param  item	the item you wish to add to the cell
 	 */
-	public void addItem(Item item)
+	public void addItem(BodyPart item)
 	{
 		onGround.add(item);
 	}
@@ -74,7 +79,7 @@ public class Cell implements Displayable
 	 * 
 	 * @param  item	the item to be taken off the ground
 	 */
-	public void removeItem(Item item)
+	public void removeItem(BodyPart item)
 	{
 		onGround.remove(item);
 	}

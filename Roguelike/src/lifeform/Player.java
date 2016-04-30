@@ -6,13 +6,17 @@ import item.Item;
 
 public class Player extends LifeForm
 {
-	Item head, torso, arms, legs;
 
 	public Player(String name, char rep, int health, int strength, int speed)
 	{
 		super();
 	}
 	
+	
+	/**
+	 * Generic player construction. Creates a set of starting equipment
+	 * and equips it.
+	 */
 	public Player(){
 		super();
 		rep = '@';
@@ -21,10 +25,11 @@ public class Player extends LifeForm
 		BodyPart starterTorso = new BodyPart(1);
 		BodyPart starterArms = new BodyPart(2);
 		BodyPart starterLegs = new BodyPart(3);
-		equipPart(starterHead);
-		equipPart(starterTorso);
-		equipPart(starterArms);
-		equipPart(starterLegs);
+		head = starterHead;
+		torso = starterTorso;
+		arms = starterArms;
+		legs = starterLegs;
+		updateStats();
 	}
 	
 	/**

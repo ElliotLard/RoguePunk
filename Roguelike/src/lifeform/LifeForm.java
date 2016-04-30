@@ -46,38 +46,62 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	public LifeForm(){}
 	
 	/**
-	 * This is mostly Commands.
+	 * Passes the item on the ground to be equipped
+	 * then removes the item from the ArrayList in the
+	 * cell.
+	 * @param loc
 	 * @param i
 	 */
-	
-	public void pickUp(Cell loc, Item i){
-		
+	public void pickUp(Cell loc, BodyPart i){
+		equipPart(i);
+		loc.removeItem(i);
 	}
 	
-	public Item dropItem(Cell loc, Item i){
-		return i;
-		
+	/**
+	 * Adds the item in to the ArrayList of the Cell
+	 * to be on the ground.
+	 * @param loc
+	 * @param i
+	 */
+	public void dropItem(Cell loc, BodyPart i){
+		loc.addItem(i);	
 	}
 	
+	/**
+	 * When a BodyPart is equipped it checks for each BodySlot
+	 * value and equips it in the proper item slot. It then
+	 * drops whichever item was just replaced on to the ground.
+	 * 
+	 * It then updates the stats of the LifeForm
+	 * @param i
+	 */
 	public void equipPart(BodyPart i){
 		if (i.getBodySlot() == 0){
 			head = i;
+			dropItem(location, head);
 		} else if (i.getBodySlot() == 1){
 			torso = i;
+			dropItem(location, torso);
 		} else if (i.getBodySlot() == 2){
 			arms = i;
+			dropItem(location, arms);
 		} else if (i.getBodySlot() == 3){
 			legs = i;
+			dropItem(location, legs);
 		}
 		updateStats();
 	}
 	
 	/**
-	 * Once items are implemented we will use this
-	 * method to update stats.
+	 * Reads the values of each item and updates the players stats accordingly.
 	 */
 	public void updateStats(){
-		str = head.getSTR(); // Any more than this makes the game error out.
+		str = (head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR());
+		spd = (head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD());
+		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		hp[1] = hp[0];
+		ap[0] = 1;
+		ap[1] = ap[0];
 
 	}
 	
@@ -101,6 +125,15 @@ public abstract class LifeForm implements RoundObserver, Displayable
 			ap[0] = ap[1];
 		}
 	}
+	/**
+	 * Gives the LifeForm a cell to move to
+	 * it checks to make sure the cell is not
+	 * null, removes the LifeForm, and adds
+	 * the LifeForm in to the new cell.
+	 * 
+	 * This lets LifeForm keep track of its location.
+	 * @param c
+	 */
 	
 	public void moveLifeForm(Cell c)
 	{
@@ -110,20 +143,36 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		c.addLifeForm(this);
 	}
 	
+	/**
+	 * Returns the location of the LifeForm
+	 * @return
+	 */
 	public Cell getCell(){
 		return location;
 	}
 	
+	/**
+	 * Gets the Y value of the location coords
+	 * @return
+	 */
 	public int getyLocation()
 	{
 		return location.getyLoc();
 	}
-
+	
+	/**
+	 * Gets the X value of the location coords
+	 * @return
+	 */
 	public int getxLocation()
 	{
 		return location.getxLoc();
 	}
 	
+	/**
+	 * These methods return the current and max health of a lifeForm
+	 * @return
+	 */
 	public int getCurhp()
 	{
 		return hp[0];
