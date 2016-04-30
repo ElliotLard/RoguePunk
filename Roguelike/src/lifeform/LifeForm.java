@@ -36,11 +36,13 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param strength
 	 * @param speed
 	 */
-	public LifeForm(String name, char rep, Item head, Item torso, Item arms,
-			Item legs)
+	public LifeForm(String name, char rep, Item h, Item t, Item a,
+			Item l)
 	{
-		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		hp[0] = (h.getHP()+t.getHP()+a.getHP()+l.getHP());
 		hp[1] = hp[0];
+		str = h.getSTR()+t.getSTR()+a.getSTR()+l.getSTR();
+		spd = h.getSPD()+t.getSPD()+a.getSPD()+l.getSPD();
 	}
 	
 	public LifeForm(){}
@@ -77,8 +79,9 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * method to update stats.
 	 */
 	public void updateStats(){
-		str = head.getSTR(); // Any more than this makes the game error out.
-
+		hp[1] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		str = head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR();
+		spd = head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD();
 	}
 	
 	/**
