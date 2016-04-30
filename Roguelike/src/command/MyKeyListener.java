@@ -8,6 +8,11 @@ import lifeform.Player;
 
 public class MyKeyListener implements KeyListener
 {
+	/**
+	 * Sets the KeyListener to be able to call
+	 * commands to the player and update the game
+	 * GUI.
+	 */
 	Game game;
 	Player player;
 	KeyListener myKeyListener;
@@ -20,6 +25,12 @@ public class MyKeyListener implements KeyListener
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
+		/**
+		 * Reads in the key the player uses and uses the cases
+		 * accordingly to call to the command to execute.
+		 * 
+		 * After every key press the GUI is updated.
+		 */
 		Command move = new Move(player);
 		char entered = e.getKeyChar();
 		switch (entered){
@@ -35,10 +46,16 @@ public class MyKeyListener implements KeyListener
 		case 'd':
 			move.execute(entered);
 			break;
+		case 'x':
+			move.execute(entered);
+			break;
 		}
 		game.updateState();
 	}
 
+	/**
+	 * not used methods
+	 */
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
@@ -51,6 +68,11 @@ public class MyKeyListener implements KeyListener
 		// TODO Auto-generated method stub		
 	}
 	
+	
+	/**
+	 * Allows us to set the game value
+	 * @param g
+	 */
 	public void setGame(Game g)
 	{
 		game = g;

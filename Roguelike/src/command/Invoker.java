@@ -9,14 +9,20 @@ public class Invoker
 {
 	KeyListener listener;
 	
+	/**
+	 * Builds MyKeyListener and passes along the player and
+	 * instance of Game
+	 * @param player
+	 * @param g
+	 */
 	public Invoker(Player player, Game g){
 		listener = new MyKeyListener(player, g);
-		/**
-		 * Needs to be completed in the GUI.
-		 * addKeyListener(listener);
-		 * setFocusable(true);
-		 */
 	}	
+	
+	/**
+	 * Returns the KeyListener to be passed along in Game
+	 * @return
+	 */
 	public KeyListener getKeyListener(){
 		return listener;
 	}

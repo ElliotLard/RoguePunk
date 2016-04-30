@@ -2,7 +2,7 @@ package command;
 
 import lifeform.Player;
 
-public class Move implements Command
+public class Equip implements Command
 {
 	Player player;
 	
@@ -11,18 +11,18 @@ public class Move implements Command
 	 * to call to interact with the game.
 	 * @param player
 	 */
-	public Move(Player player){
+	public Equip(Player player){
 		this.player = player;
 	}
 
 	/**
-	 * execute calls to the move method in player
-	 * giving it the key value pressed.
+	 * execute calls to the pickUp method in player
+	 * which uses pickUp method.
 	 */
 	@Override
 	public void execute(char key)
 	{
-		player.move(key);
+		player.pickUp(player.getCell(), player.getCell().getItemOnGround());
 		
 	}
 }
