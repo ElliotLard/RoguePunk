@@ -9,13 +9,14 @@ import lifeform.Player;
 public class MyKeyListener implements KeyListener
 {
 	/**
+	 * @author Christopher Wilson
+	 * 
 	 * Sets the KeyListener to be able to call
 	 * commands to the player and update the game
 	 * GUI.
 	 */
 	Game game;
 	Player player;
-	KeyListener myKeyListener;
 
 	public MyKeyListener(Player player, Game g){
 		this.player = player;
@@ -32,6 +33,7 @@ public class MyKeyListener implements KeyListener
 		 * After every key press the GUI is updated.
 		 */
 		Command move = new Move(player);
+		Command equip = new Equip(player);
 		char entered = e.getKeyChar();
 		switch (entered){
 		case 'w':
@@ -47,7 +49,7 @@ public class MyKeyListener implements KeyListener
 			move.execute(entered);
 			break;
 		case 'x':
-			move.execute(entered);
+			equip.execute(entered);
 			break;
 		}
 		game.updateState();

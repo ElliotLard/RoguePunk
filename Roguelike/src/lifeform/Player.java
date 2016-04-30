@@ -7,6 +7,9 @@ import item.Item;
 public class Player extends LifeForm
 {
 
+	/**
+	 * @author Christopher Wilson
+	 */
 	public Player(String name, char rep, int health, int strength, int speed)
 	{
 		super();

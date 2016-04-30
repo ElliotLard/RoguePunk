@@ -10,6 +10,8 @@ public class Invoker
 	KeyListener listener;
 	
 	/**
+	 * @author Christopher Wilson
+	 * 
 	 * Builds MyKeyListener and passes along the player and
 	 * instance of Game
 	 * @param player
