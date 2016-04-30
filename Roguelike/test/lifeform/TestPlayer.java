@@ -26,9 +26,6 @@ public class TestPlayer
 		
 		assertEquals(player, Environment.getCell(30, 40).getLifeForm());
 		
-		player.moveLifeForm(Environment.getCell(30, 41));
-		assertEquals(player, Environment.getCell(30, 41).getLifeForm());
-		
 		
 		/**
 		 * Initial equipment generates random stats so we cannot
@@ -36,10 +33,9 @@ public class TestPlayer
 		 * to see if the numbers generated are between 9 and 15.
 		 */
 		
-		assertTrue(player.getCurhp() <= 20);
-		assertTrue(player.getCurhp() >= 7);
+		assertTrue(player.getMaxhp() >= 4);
+		assertTrue(player.getMaxhp() <= 20);
 		
-		Environment.wipeLevel();
 	}
 	
 	/**
@@ -50,8 +46,9 @@ public class TestPlayer
 	public void testTakeDamage(){
 		LifeForm player = new Player();
 		player.takeDamage(5);
+		
+		assertTrue(player.getCurhp() >= -1);
 		assertTrue(player.getCurhp() <= 15);
-		assertTrue(player.getCurhp() >= 1);
 	}
 	
 	/**
@@ -63,13 +60,12 @@ public class TestPlayer
 		LifeForm player = new Player();
 		Environment.getLevel("testLevel");
 		player.moveLifeForm(Environment.getCell(30, 40));
-		assertTrue(player.getCurhp() <= 20);
-		assertTrue(player.getCurhp() >= 7);
 		
 		BodyPart head = new BodyPart("TestHead", "A head", 5, 1, 0);
 		player.equipPart(head);
 		
-		assertTrue(player.getCurhp() >= 10);
+		assertTrue(player.getMaxhp() >= 8);
+		assertTrue(player.getMaxhp() <= 40);
 		
 		Environment.wipeLevel();
 	}

@@ -27,6 +27,13 @@ public class Player extends LifeForm
 		torso = starterTorso;
 		arms = starterArms;
 		legs = starterLegs;
+		
+		str = (head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR());
+		spd = (head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD());
+		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		hp[1] = hp[0];
+		ap[0] = 1;
+		ap[1] = ap[0];
 	}
 	
 	/**
