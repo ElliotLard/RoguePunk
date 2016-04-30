@@ -33,6 +33,7 @@ public class MyKeyListener implements KeyListener
 		 * After every key press the GUI is updated.
 		 */
 		Command move = new Move(player);
+		Command equip = new Equip(player);
 		char entered = e.getKeyChar();
 		switch (entered){
 		case 'w':
@@ -48,7 +49,7 @@ public class MyKeyListener implements KeyListener
 			move.execute(entered);
 			break;
 		case 'x':
-			move.execute(entered);
+			equip.execute(entered);
 			break;
 		}
 		game.updateState();

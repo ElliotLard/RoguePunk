@@ -53,8 +53,10 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param i
 	 */
 	public void pickUp(Cell loc, BodyPart i){
-		equipPart(i);
-		loc.removeItem(i);
+		if (i instanceof BodyPart){
+			equipPart(i);
+			loc.removeItem(i);
+		}
 	}
 	
 	/**
