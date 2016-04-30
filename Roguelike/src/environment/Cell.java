@@ -77,11 +77,11 @@ public class Cell implements Displayable
 	 * 
 	 * removes a specific item from the ground
 	 * 
-	 * @param  item	the item to be taken off the ground
+	 * @param  i	the item to be taken off the ground
 	 */
-	public void removeItem(BodyPart item)
+	public void removeItem(Item i)
 	{
-		onGround.remove(item);
+		onGround.remove(i);
 	}
 	
 	/**

@@ -25,7 +25,7 @@ public class Reinforcer extends Item
 	@Override
 	public void UseItem()
 	{
-		//Does nothing, materials can't be used by themselves		
+		//Calls a gui to choose an item		
 	}
 	
 

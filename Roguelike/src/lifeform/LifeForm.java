@@ -52,8 +52,10 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param i
 	 */
 	
-	public void pickUp(Cell loc, Item i){
-		
+	public void pickUp(Cell loc, Item i)
+	{
+		i.PickedUp(this);
+		loc.removeItem(i);
 	}
 	
 	public Item dropItem(Cell loc, Item i){

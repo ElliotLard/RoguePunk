@@ -39,6 +39,7 @@ public abstract class Item
 	public void PickedUp(LifeForm newHold)
 	{
 		hold = newHold;
+		UseItem();
 	}
 	
 	
