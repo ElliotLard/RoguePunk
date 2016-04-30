@@ -30,6 +30,10 @@ public class Environment
 		return level;
 	}
 	
+	public static void wipeLevel(){
+		level = null;
+	}
+	
 	@SuppressWarnings("resource")
 	private void loadLevel(String fileName)
 	{

@@ -37,4 +37,8 @@ public class InvokerBuilder
 		}
 		return invoker;
 	}
+	
+	public static void destroyInvoker(){
+		invoker = null;
+	}
 }
