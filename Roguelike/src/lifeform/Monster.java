@@ -18,14 +18,14 @@ public class Monster extends LifeForm
 	{
 		difficulty = 1;
 		
-		Item head = new BodyPart(0);
-		Item torso = new BodyPart(1);
-		Item arms = new BodyPart(2);
-		Item legs = new BodyPart(3);
-		Bodyparts.add(head);
-		Bodyparts.add(torso);
-		Bodyparts.add(arms);
-		Bodyparts.add(legs);
+		BodyPart head = new BodyPart(0);
+		BodyPart torso = new BodyPart(1);
+		BodyPart arms = new BodyPart(2);
+		BodyPart legs = new BodyPart(3);
+		equipPart(head);
+		equipPart(torso);
+		equipPart(arms);
+		equipPart(legs);
 		
 		//Sets the monsters default stats; THEY WILL VARY EACH TIME
 		str = (head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR())/(10/difficulty);

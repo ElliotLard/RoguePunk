@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import GUI.Displayable;
 import environment.Cell;
 import gameplay.RoundObserver;
+import item.BodyPart;
 import item.Item;
 
 /**
@@ -19,14 +20,13 @@ public abstract class LifeForm implements RoundObserver, Displayable
 {
 	int[] hp = new int[2]; // [0] is current hp, [1] is max hp
 	int[] ap = new int[2]; // [0] is current ap, [1] is max ap
-	ArrayList<Item> Bodyparts = new ArrayList<Item>(); // Head, Torso, Arms, Legs
-	ArrayList<Item> Inventory = new ArrayList<Item>();
+	BodyPart head, torso, arms, legs;
 	
 	int str, spd;
 	char rep; // How the LifeForm will appear on screen.
 	String myName;
 	
-	Cell location;
+	Cell location; // Location of the player
 	
 	/**
 	 * Every LifeForm spawns with 4 items equipped.
@@ -50,24 +50,26 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param i
 	 */
 	
-	public void pickUp(Item i){
-		Inventory.add(i);
-	}
-	
-	public Item dropItem(int loc, Item i){
-		for (int x = 0; x < Inventory.size(); x++)
-		{
-			if (i == Inventory.get(x)){
-				Inventory.remove(i);
-				return i;
-			}
-		}
-		return null;
+	public void pickUp(Cell loc, Item i){
 		
 	}
 	
-	public void equipPart(Item i){
-		Bodyparts.add(i);
+	public Item dropItem(Cell loc, Item i){
+		return i;
+		
+	}
+	
+	public void equipPart(BodyPart i){
+		if (i.getBodySlot() == 0){
+			head = i;
+		} else if (i.getBodySlot() == 1){
+			torso = i;
+		} else if (i.getBodySlot() == 2){
+			arms = i;
+		} else if (i.getBodySlot() == 3){
+			legs = i;
+		}
+		updateStats();
 	}
 	
 	/**
@@ -75,7 +77,8 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * method to update stats.
 	 */
 	public void updateStats(){
-		
+		str = head.getSTR(); // Any more than this makes the game error out.
+
 	}
 	
 	/**

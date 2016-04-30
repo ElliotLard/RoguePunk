@@ -51,4 +51,8 @@ public class BodyPart extends Item
 	{
 		//Empty because a body part cannot be used; only equipped
 	}
+	
+	public int getBodySlot(){
+		return BodySlot;
+	}
 }

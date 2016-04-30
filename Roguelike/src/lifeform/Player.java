@@ -17,10 +17,10 @@ public class Player extends LifeForm
 		super();
 		rep = '@';
 		
-		Item starterHead = new BodyPart();
-		Item starterTorso = new BodyPart();
-		Item starterArms = new BodyPart();
-		Item starterLegs = new BodyPart();
+		BodyPart starterHead = new BodyPart(0);
+		BodyPart starterTorso = new BodyPart(1);
+		BodyPart starterArms = new BodyPart(2);
+		BodyPart starterLegs = new BodyPart(3);
 		equipPart(starterHead);
 		equipPart(starterTorso);
 		equipPart(starterArms);
