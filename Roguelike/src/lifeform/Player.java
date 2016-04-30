@@ -39,22 +39,26 @@ public class Player extends LifeForm
 		if (key == 'w')
 		{
 			Cell up = Environment.getCell(this.getyLocation()-1, this.getxLocation());
-			moveLifeForm(up);
+			if(up.getLifeForm()==null)
+				moveLifeForm(up);
 		}
 		else if (key == 's')
 		{
 			Cell down = Environment.getCell(this.getyLocation()+1, this.getxLocation());
-			moveLifeForm(down);
+			if(down.getLifeForm()==null)
+				moveLifeForm(down);
 		}
 		else if (key == 'a')
 		{
 			Cell left = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
-			moveLifeForm(left);
+			if(left.getLifeForm()==null)	
+				moveLifeForm(left);
 		}
 		else if (key == 'd')
 		{
 			Cell right = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
-			moveLifeForm(right);
+			if(right.getLifeForm()==null)
+				moveLifeForm(right);
 		}
 	}
 }

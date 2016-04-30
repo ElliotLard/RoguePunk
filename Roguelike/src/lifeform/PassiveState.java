@@ -6,14 +6,12 @@ public class PassiveState extends MonsterState
 {
 	public void activate()
 	{
-		//Checks if it was attacked
-		if(monster.getCurhp()!=monster.getMaxhp())
+		//Checks if the monster was attacked
+		if(monster.getCurhp()!= hpAtChangeState)
 		{
 			AggressiveState s = new AggressiveState();
 			changeState(s);
 		}
-		
-			
 		
 	}
 }

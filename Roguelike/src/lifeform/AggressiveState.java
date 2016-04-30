@@ -5,8 +5,6 @@ import environment.*;
 public class AggressiveState extends MonsterState
 {
 	int countDown = 3;
-	boolean playerFound;
-	Cell playerLoc;
 	
 	public void activate()
 	{
@@ -20,33 +18,15 @@ public class AggressiveState extends MonsterState
 			searchPlayer();
 		else
 		{
-			if(getDistance(monster.getCell(), ))
+			if(getDistance(monster.getCell(), playerLoc)>1);
+			
 		}
 	}
 	
-	//Searches for the player within a 4 cell radius
-	private void searchPlayer()
+	private int getDistance(Cell cell, Cell playerLoc2)
 	{
-		//Searches north of the monster
-		boolean searchComplete = false;
-		while(searchComplete)
-		{
-			int Y = Environment.HEIGHT-1;
-			int X = Environment.WIDTH-1;
-			
-			int mX = monster.getxLocation();
-			int mY = monster.getyLocation();
-			
-			//Checks for out of bounds
-			if(mY-1>0)
-			{
-				if(Environment.getCell(mY-1, mX).getLifeForm().getClass()==Player.class)
-				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-1, mX);
-				}
-			}
-				
-		}
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
 }

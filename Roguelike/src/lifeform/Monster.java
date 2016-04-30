@@ -43,4 +43,10 @@ public class Monster extends LifeForm
 	{
 		state = s;
 	}
+	
+	@Override
+	public void updateRound(int round)
+	{
+		state.activate();
+	}
 }
