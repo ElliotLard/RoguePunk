@@ -137,8 +137,9 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	
 	public void moveLifeForm(Cell c)
 	{
-		if (location != null)
+		if (location != null){
 			location.removeLifeForm();
+		}
 		location = c;
 		c.addLifeForm(this);
 	}

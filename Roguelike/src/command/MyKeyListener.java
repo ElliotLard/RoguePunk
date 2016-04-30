@@ -9,13 +9,14 @@ import lifeform.Player;
 public class MyKeyListener implements KeyListener
 {
 	/**
+	 * @author Christopher Wilson
+	 * 
 	 * Sets the KeyListener to be able to call
 	 * commands to the player and update the game
 	 * GUI.
 	 */
 	Game game;
 	Player player;
-	KeyListener myKeyListener;
 
 	public MyKeyListener(Player player, Game g){
 		this.player = player;
