@@ -46,7 +46,7 @@ public class Player extends LifeForm
 		if (key == 'w')
 		{
 			Cell up = Environment.getCell(this.getyLocation()-1, this.getxLocation());
-			if (up.getRep()=='.'){
+			if (up.getRep()!='#'){
 				if(up.getLifeForm()!=null)
 					up.getLifeForm().takeDamage(calcDamage());
 				else
@@ -56,7 +56,7 @@ public class Player extends LifeForm
 		else if (key == 's')
 		{
 			Cell down = Environment.getCell(this.getyLocation()+1, this.getxLocation());
-			if(down.getRep()=='.'){
+			if(down.getRep()!='#'){
 				if(down.getLifeForm()!=null)
 					down.getLifeForm().takeDamage(calcDamage());
 				else
@@ -66,7 +66,7 @@ public class Player extends LifeForm
 		else if (key == 'a')
 		{
 			Cell left = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
-			if(left.getRep()=='.'){
+			if(left.getRep()!='#'){
 				if(left.getLifeForm()!=null)
 					left.getLifeForm().takeDamage(calcDamage());
 				else
@@ -76,7 +76,7 @@ public class Player extends LifeForm
 		else if (key == 'd')
 		{
 			Cell right = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
-			if(right.getRep()=='.'){
+			if(right.getRep()!='#'){
 				if(right.getLifeForm()!=null)
 					right.getLifeForm().takeDamage(calcDamage());
 				else
