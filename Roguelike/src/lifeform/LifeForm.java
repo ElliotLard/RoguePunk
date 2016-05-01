@@ -1,6 +1,5 @@
 package lifeform;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import GUI.Displayable;
@@ -59,8 +58,8 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		loc.removeItem(i);
 	}
 	
-	public void dropItem(Cell loc, BodyPart i){
-		loc.addItem(i);		
+	public void dropItem(Cell loc, Item item){
+		loc.addItem(item);		
 	}
 	
 	public void equipPart(BodyPart i){

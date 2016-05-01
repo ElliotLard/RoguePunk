@@ -1,7 +1,7 @@
 package item;
 
 //Author: Aaron Gerber
-//A material that can reinforce an item
+//A material that can reinforce any item
 
 public class Reinforcer extends Item
 {
@@ -14,6 +14,13 @@ public class Reinforcer extends Item
 		super(n, d, r, u);
 		Modifier = mod;
 	}
+	
+	//Sets the default for a material
+		public Reinforcer(int u)
+		{
+			super("Reinforcer","Makes an item stronger!", 3, u);
+			Modifier = 5;
+		}
 	
 	//Sets the default for a material
 	public Reinforcer()

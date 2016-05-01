@@ -2,6 +2,8 @@ package item;
 
 import java.util.Random;
 
+import lifeform.LifeForm;
+
 //Author: Aaron Gerber
 //The body parts of any LifeForm; almost no body part should be the same.
 
@@ -22,6 +24,7 @@ public class BodyPart extends Item
 	{
 		super("Generic Body Part","Just a piece of garbage", 1, 1);
 		//Random rand = new Random();  TODO this doesn't do anything
+		rep = 'b';
 		BodySlot = s;
 		GenerateStats();
 	}
@@ -47,12 +50,19 @@ public class BodyPart extends Item
 	}
 	
 	@Override
-	public void UseItem()
+	public void PickedUp(LifeForm i)
 	{
-		//Empty because a body part cannot be used; only equipped
+		i.equipPart(this);
 	}
 	
 	public int getBodySlot(){
 		return BodySlot;
+	}
+
+	@Override
+	public void UseItem()
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

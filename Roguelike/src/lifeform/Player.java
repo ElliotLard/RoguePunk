@@ -1,8 +1,6 @@
 package lifeform;
-import environment.Cell;
-import environment.Environment;
-import item.BodyPart;
-import item.Item;
+import environment.*;
+import item.*;
 
 public class Player extends LifeForm
 {

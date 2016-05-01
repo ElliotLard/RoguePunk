@@ -6,12 +6,13 @@ import GUI.Displayable;
 import item.BodyPart;
 import item.Item;
 
+//Aaron Gerber - Changed any references of BodyParts to Item
 
 public class Cell implements Displayable
 {	
 	int xLoc, yLoc;
 	LifeForm inhabitant;
-	private ArrayList<BodyPart> onGround = new ArrayList<BodyPart>();;
+	private ArrayList<Item> onGround = new ArrayList<Item>();;
 	char rep;
 	/**
 	 * @author elliotlard
@@ -56,7 +57,7 @@ public class Cell implements Displayable
 		inhabitant = null;
 	}
 	
-	public BodyPart getItemOnGround(){
+	public Item getItemOnGround(){
 		return onGround.get(0);
 	}
 	
@@ -67,7 +68,7 @@ public class Cell implements Displayable
 	 * 
 	 * @param  item	the item you wish to add to the cell
 	 */
-	public void addItem(BodyPart item)
+	public void addItem(Item item)
 	{
 		onGround.add(item);
 	}
