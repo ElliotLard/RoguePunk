@@ -160,6 +160,16 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		return hp[1];
 	}
 	
+	public String getName()
+	{
+		return myName;
+	}
+	
+	public int getStrenth()
+	{
+		return str;
+	}
+	
 	@Override
 	public char getRep()
 	{

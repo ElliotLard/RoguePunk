@@ -2,8 +2,11 @@ package GUI;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import lifeform.Player;
 public class Legend
 {
+	Player player;
 	JLabel name;
 	JLabel health;
 	JLabel strength;
@@ -13,25 +16,15 @@ public class Legend
 	JLabel legs;
 	JLabel inventory;
 	JPanel legend;
-	public Legend()
+	public Legend(Player player)
 	{
 		legend = new JPanel(new GridLayout(8,1,1,1));
-		name = new JLabel("bob");
-		health = new JLabel("10/100");
-		head = new JLabel("goblin head");
-		torso = new JLabel("goblin torso");
-		arms= new JLabel("goblin arms");
-		legs = new JLabel("goblin legs");
-		inventory = new JLabel("[{[]-][|[");
+		name = new JLabel("name: " + player.getName());
+		health = new JLabel("health: " + player.getCurhp() + "/" + player.getMaxhp());
+		strength = new JLabel("strength: " + player.getStrenth() + "");
 		legend.add(name);
 		legend.add(health);
-		legend.add(head);
-		legend.add(torso);
-		legend.add(arms);
-		legend.add(legs);
-		legend.add(inventory);
-
-		
+		legend.add(strength);
 		legend.setVisible(true);
 	}
 	public JPanel get()

@@ -19,8 +19,8 @@ public class Game
 	
 	public Game()
 	{
-		legend = new Legend();
 		Player player = new Player();
+		legend = new Legend(player);
 		InvokerBuilder.getInvoker(player, this);
 		KeyListener listener = InvokerBuilder.getInvoker(player, this).getKeyListener();
 		state = new MenuState(this);
