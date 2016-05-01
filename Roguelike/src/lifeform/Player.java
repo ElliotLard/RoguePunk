@@ -17,6 +17,7 @@ public class Player extends LifeForm
 	
 	public Player(){
 		super();
+		myName = "Popskonovich";
 		rep = '@';
 		
 		BodyPart starterHead = new BodyPart(0);
