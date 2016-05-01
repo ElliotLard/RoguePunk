@@ -6,8 +6,10 @@ import item.Item;
 
 public class Player extends LifeForm
 {
-	Item head, torso, arms, legs;
 
+	/**
+	 * @author Christopher Wilson
+	 */
 	public Player(String name, char rep, int health, int strength, int speed)
 	{
 		super();
@@ -21,10 +23,17 @@ public class Player extends LifeForm
 		BodyPart starterTorso = new BodyPart(1);
 		BodyPart starterArms = new BodyPart(2);
 		BodyPart starterLegs = new BodyPart(3);
-		equipPart(starterHead);
-		equipPart(starterTorso);
-		equipPart(starterArms);
-		equipPart(starterLegs);
+		head = starterHead;
+		torso = starterTorso;
+		arms = starterArms;
+		legs = starterLegs;
+		
+		str = (head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR());
+		spd = (head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD());
+		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		hp[1] = hp[0];
+		ap[0] = 1;
+		ap[1] = ap[0];
 	}
 	
 	/**
@@ -37,22 +46,34 @@ public class Player extends LifeForm
 		if (key == 'w')
 		{
 			Cell up = Environment.getCell(this.getyLocation()-1, this.getxLocation());
-			moveLifeForm(up);
+			if(up.getLifeForm()!=null)
+				up.getLifeForm().takeDamage(calcDamage());
+			else
+				moveLifeForm(up);
 		}
 		else if (key == 's')
 		{
 			Cell down = Environment.getCell(this.getyLocation()+1, this.getxLocation());
-			moveLifeForm(down);
+			if(down.getLifeForm()!=null)
+				down.getLifeForm().takeDamage(calcDamage());
+			else
+				moveLifeForm(down);
 		}
 		else if (key == 'a')
 		{
 			Cell left = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
-			moveLifeForm(left);
+			if(left.getLifeForm()!=null)
+				left.getLifeForm().takeDamage(calcDamage());
+			else
+				moveLifeForm(left);
 		}
 		else if (key == 'd')
 		{
 			Cell right = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
-			moveLifeForm(right);
+			if(right.getLifeForm()!=null)
+				right.getLifeForm().takeDamage(calcDamage());
+			else
+				moveLifeForm(right);
 		}
 	}
 }

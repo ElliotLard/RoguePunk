@@ -1,11 +1,14 @@
 package lifeform;
 
 import item.*;
+import environment.Cell;
+import environment.Environment;
 
 public class Monster extends LifeForm
 {
 	//Difficulty can never be 0
 	int difficulty;
+	MonsterState state;
 	
 	public Monster(String name, char rep, Item head, Item torso, Item arms,
 			Item legs)
@@ -34,5 +37,16 @@ public class Monster extends LifeForm
 		hp[1] = hp[0];
 		ap[0] = 1;
 		ap[1] = ap[0];
+	}
+
+	public void changeState(MonsterState s)
+	{
+		state = s;
+	}
+	
+	@Override
+	public void updateRound(int round)
+	{
+		state.activate();
 	}
 }

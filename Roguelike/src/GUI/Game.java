@@ -21,8 +21,8 @@ public class Game
 	{
 		legend = new Legend();
 		Player player = new Player();
-		InvokerBuilder builder = new InvokerBuilder(player, this);
-		KeyListener listener = builder.getInvoker().getKeyListener();
+		InvokerBuilder.getInvoker(player, this);
+		KeyListener listener = InvokerBuilder.getInvoker(player, this).getKeyListener();
 		state = new MenuState(this);
 		game = new JFrame();
 		game.addKeyListener(listener);

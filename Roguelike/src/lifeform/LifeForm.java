@@ -1,6 +1,7 @@
 package lifeform;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import GUI.Displayable;
 import environment.Cell;
@@ -36,11 +37,13 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param strength
 	 * @param speed
 	 */
-	public LifeForm(String name, char rep, Item head, Item torso, Item arms,
-			Item legs)
+	public LifeForm(String name, char rep, Item h, Item t, Item a,
+			Item l)
 	{
-		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		hp[0] = (h.getHP()+t.getHP()+a.getHP()+l.getHP());
 		hp[1] = hp[0];
+		str = h.getSTR()+t.getSTR()+a.getSTR()+l.getSTR();
+		spd = h.getSPD()+t.getSPD()+a.getSPD()+l.getSPD();
 	}
 	
 	public LifeForm(){}
@@ -50,8 +53,10 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param i
 	 */
 	
-	public void pickUp(Cell loc, Item i){
-		
+	public void pickUp(Cell loc, Item i)
+	{
+		i.PickedUp(this);
+		loc.removeItem(i);
 	}
 	
 	public Item dropItem(Cell loc, Item i){
@@ -77,8 +82,9 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * method to update stats.
 	 */
 	public void updateStats(){
-		str = head.getSTR(); // Any more than this makes the game error out.
-
+		hp[1] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP());
+		str = head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR();
+		spd = head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD();
 	}
 	
 	/**
@@ -110,6 +116,26 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		c.addLifeForm(this);
 	}
 	
+	//Aaron - Calculates damage for monsters and player
+	protected int calcDamage()
+	{
+		Random ran = new Random();
+		int rarity = head.getRarity();
+		if(rarity<torso.getRarity())
+			rarity = torso.getRarity();
+		if(rarity<arms.getRarity())
+			rarity = arms.getRarity();
+		if(rarity<legs.getRarity())
+			rarity = legs.getRarity();
+		
+		int damage = str+(ran.nextInt(rarity*5)+1);
+		damage = damage/4;
+		
+		return damage;
+	}
+	
+	
+	//Getters for some of lifeform's data
 	public Cell getCell(){
 		return location;
 	}
