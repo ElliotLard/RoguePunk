@@ -15,13 +15,12 @@ public class FullyAggressiveState extends MonsterState
 		//Moves toward the player if found or attacks the player if it is close enough
 		if(playerFound)
 		{
-			if(getDistance()>1)
+			if(getDistance()==1)
 				playerLoc.getLifeForm().takeDamage(monster.calcDamage());
 			else
 				moveTowardPlayer();
 					
 		}
-		
 		//If the monster couldn't find the player, it moves randomly
 		else
 			MoveRandomly();

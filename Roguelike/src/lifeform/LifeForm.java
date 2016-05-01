@@ -20,7 +20,7 @@ public abstract class LifeForm implements RoundObserver, Displayable
 {
 	int[] hp = new int[2]; // [0] is current hp, [1] is max hp
 	int[] ap = new int[2]; // [0] is current ap, [1] is max ap
-	BodyPart head, torso, arms, legs;
+	Item head, torso, arms, legs;
 	
 	int str, spd;
 	char rep; // How the LifeForm will appear on screen.
@@ -43,6 +43,12 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		hp[1] = hp[0];
 		str = h.getSTR()+t.getSTR()+a.getSTR()+l.getSTR();
 		spd = h.getSPD()+t.getSPD()+a.getSPD()+l.getSPD();
+		
+		head = h;
+		torso = t;
+		arms = a;
+		legs = l;
+		
 	}
 	
 	public LifeForm(){}
@@ -128,6 +134,9 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		
 		int damage = str+(ran.nextInt(rarity*5)+1);
 		damage = damage/4;
+		
+		if(damage<1)
+			damage=1;
 		
 		return damage;
 	}

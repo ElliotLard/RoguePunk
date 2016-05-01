@@ -37,302 +37,250 @@ public class MonsterState
 		int mX = monster.getxLocation();
 		int mY = monster.getyLocation();
 
-		//Checks for out of bounds exceptions and for player location
-		// that are north of the monster
-		if(mY-1>0)
-		{
-			if(Environment.getCell(mY-1, mX).getLifeForm().getClass()==Player.class)
+		boolean searchComplete = false;
+		
+			// Checks for out of bounds exceptions and for player location
+			// that are north of the monster
+			if (mY - 1 > 0)
 			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY-1, mX);
-			}
-			else if(mY-2>0)
-			{
-				if(Environment.getCell(mY-2, mX).getLifeForm().getClass()==Player.class)
+				if (Environment.getCell(mY - 1, mX).getLifeForm() != null
+						&& Environment.getCell(mY - 1, mX).getLifeForm().getClass() == Player.class)
 				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-2, mX);
-				}
-				else if(mY-3>0)
+					playerFound = true;
+					playerLoc = Environment.getCell(mY - 1, mX);
+					return;
+				} else if (mY - 2 > 0)
 				{
-					if(Environment.getCell(mY-3, mX).getLifeForm().getClass()==Player.class)
+					if (Environment.getCell(mY - 2, mX).getLifeForm() != null
+							&& Environment.getCell(mY - 2, mX).getLifeForm().getClass() == Player.class)
 					{
-						playerFound=true;
-						playerLoc = Environment.getCell(mY-3, mX);
+						playerFound = true;
+						playerLoc = Environment.getCell(mY - 2, mX);
+						return;
+					} else if (mY - 3 > 0)
+					{
+						if (Environment.getCell(mY - 3, mX).getLifeForm() != null
+								&& Environment.getCell(mY - 3, mX).getLifeForm().getClass() == Player.class)
+						{
+							playerFound = true;
+							playerLoc = Environment.getCell(mY - 3, mX);
+							return;
+						}
+					}
+				}
+
+			}
+
+			// Checks for out of bounds exceptions and for player location that
+			// are north-east of the monster
+			if (mY - 1 > 0 && mX + 1 < boundryX && playerFound == false)
+			{
+				if (Environment.getCell(mY - 1, mX + 1).getLifeForm() != null
+						&& Environment.getCell(mY - 1, mX + 1).getLifeForm().getClass() == Player.class)
+				{
+					playerFound = true;
+					playerLoc = Environment.getCell(mY - 1, mX + 1);
+					return;
+				} else if (mY - 2 > 0)
+				{
+					if (Environment.getCell(mY - 2, mX + 1).getLifeForm() != null
+							&& Environment.getCell(mY - 2, mX + 1).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY - 2, mX + 1);
+						return;
+					}
+				} else if (mX + 2 < boundryX)
+				{
+					if (Environment.getCell(mY - 1, mX + 2).getLifeForm() != null
+							&& Environment.getCell(mY - 1, mX + 2).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY - 1, mX + 2);
+						return;
 					}
 				}
 			}
-
-		}
-		/*Locations checked
-		 * 	     X
-		 * 	   []X.[]
-		 * 	 [][]X.[][]
-		 * [][][]O.[][][]
-		 *   [][][][][]
-		 *     [][][]
-		 *       []
-		 */
-
-		//Checks for out of bounds exceptions and for player location that
-		// are north-east of the monster
-		if(mY-1>0&&mX+1<boundryX&&!playerFound)
-		{
-			if(Environment.getCell(mY-1, mX+1).getLifeForm().getClass()==Player.class)
+			// Checks for out of bounds exceptions and for player location that
+			// are east of the monster
+			if (mX + 1 < boundryX && playerFound == false)
 			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY-1, mX+1);
-			}
-			else if(mY-2>0)
-			{
-				if(Environment.getCell(mY-2, mX+1).getLifeForm().getClass()==Player.class)
+				if (Environment.getCell(mY, mX + 1).getLifeForm() != null
+						&& Environment.getCell(mY + 1, mX).getLifeForm().getClass() == Player.class)
 				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-2, mX+1);
-				}
-			}
-			else if(mX+2<boundryX)
-			{
-				if(Environment.getCell(mY-1, mX+2).getLifeForm().getClass()==Player.class)
+					playerFound = true;
+					playerLoc = Environment.getCell(mY, mX + 1);
+					return;
+				} else if (mX + 2 < boundryX)
 				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-1, mX+2);
-				}
-			}
-		}
-
-		/*Locations checked
-		 * 	     X
-		 * 	   []X.X.
-		 * 	 [][]X.X.X.
-		 * [][][]O.[][][]
-		 *   [][][][][]
-		 *     [][][]
-		 *       []
-		 */
-
-		//Checks for out of bounds exceptions and for player location that
-		// are east of the monster
-		if(mX+1<boundryX&&!playerFound)
-		{
-			if(Environment.getCell(mY, mX+1).getLifeForm().getClass()==Player.class)
-			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY, mX+1);
-			}
-			else if(mX+2<boundryX)
-			{
-				if(Environment.getCell(mY, mX+2).getLifeForm().getClass()==Player.class)
-				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY, mX+2);
-				}
-				else if(mX+3<boundryX)
-				{
-					if(Environment.getCell(mY, mX+3).getLifeForm().getClass()==Player.class)
+					if (Environment.getCell(mY, mX + 2).getLifeForm() != null
+							&& Environment.getCell(mY, mX + 2).getLifeForm().getClass() == Player.class)
 					{
-						playerFound=true;
-						playerLoc = Environment.getCell(mY, mX+3);
-					}
-				}
-			}	
-		}
-
-		/*Locations checked
-		 * 	     X
-		 * 	   []X.X.
-		 * 	 [][]X.X.X.
-		 * [][][]O.X.X.X.
-		 *   [][][][][]
-		 *     [][][]
-		 *       []
-		 */
-
-		//Checks for out of bounds exceptions and for player location that
-		// are south-east of the monster
-		if(mY+1<boundryY&&mX+1<boundryX&&!playerFound)
-		{
-			if(Environment.getCell(mY+1, mX+1).getLifeForm().getClass()==Player.class)
-			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY+1, mX+1);
-			}
-			else if(mY+2<boundryY)
-			{
-				if(Environment.getCell(mY+2, mX+1).getLifeForm().getClass()==Player.class)
-				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY+2, mX+1);
-				}
-			}
-			else if(mX+2<boundryX)
-			{
-				if(Environment.getCell(mY+1, mX+2).getLifeForm().getClass()==Player.class)
-				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-1, mX+2);
-				}
-			}
-		}
-
-		/*Locations checked
-		 * 	     X
-		 * 	   []X.X.
-		 * 	 [][]X.X.X.
-		 * [][][]O.X.X.X.
-		 *   [][][]X.X.
-		 *     [][]X.
-		 *       []
-		 */
-
-		//Checks for out of bounds exceptions and for player location
-		// that are south of the monster
-		if(mY+1<boundryY&&!playerFound)
-		{
-			if(Environment.getCell(mY+1, mX).getLifeForm().getClass()==Player.class)
-			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY+1, mX);
-			}
-			else if(mY+2<boundryY)
-			{
-				if(Environment.getCell(mY+2, mX).getLifeForm().getClass()==Player.class)
-				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY+2, mX);
-				}
-				else if(mY+3<boundryY)
-				{
-					if(Environment.getCell(mY+3, mX).getLifeForm().getClass()==Player.class)
+						playerFound = true;
+						playerLoc = Environment.getCell(mY, mX + 2);
+						return;
+					} else if (mX + 3 < boundryX)
 					{
-						playerFound=true;
-						playerLoc = Environment.getCell(mY+3, mX);
+						if (Environment.getCell(mY, mX + 3).getLifeForm() != null
+								&& Environment.getCell(mY, mX + 3).getLifeForm().getClass() == Player.class)
+						{
+							playerFound = true;
+							playerLoc = Environment.getCell(mY, mX + 3);
+							return;
+						}
 					}
 				}
 			}
-		}
-
-		/*Locations checked
-		 * 	     X
-		 * 	   []X.X.
-		 * 	 [][]X.X.X.
-		 * [][][]O.X.X.X.
-		 *   [][]X.X.X.
-		 *     []X.X.
-		 *       X.
-		 */
-
-		//Checks for out of bounds exceptions and for player location that
-		// are south-west of the monster
-		if(mY+1<boundryY&&mX-1>0&&!playerFound)
-		{
-			if(Environment.getCell(mY+1, mX-1).getLifeForm().getClass()==Player.class)
+			// Checks for out of bounds exceptions and for player location that
+			// are south-east of the monster
+			if (mY + 1 < boundryY && mX + 1 < boundryX && playerFound == false)
 			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY+1, mX+1);
-			}
-			else if(mY+2<boundryY)
-			{
-				if(Environment.getCell(mY+2, mX-1).getLifeForm().getClass()==Player.class)
+				if (Environment.getCell(mY + 1, mX + 1).getLifeForm() != null
+						&& Environment.getCell(mY + 1, mX + 1).getLifeForm().getClass() == Player.class)
 				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY+2, mX-1);
-				}
-			}
-			else if(mX-2>0)
-			{
-				if(Environment.getCell(mY+1, mX-2).getLifeForm().getClass()==Player.class)
+					playerFound = true;
+					playerLoc = Environment.getCell(mY + 1, mX + 1);
+					return;
+				} else if (mY + 2 < boundryY)
 				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-1, mX-2);
-				}
-			}
-		}
-
-		/*Locations checked
-		 * 	     X
-		 * 	   []X.X.
-		 * 	 [][]X.X.X.
-		 * [][][]O.X.X.X.
-		 *   X.X.X.X.X.
-		 *     X.X.X.
-		 *       X.
-		 */
-
-		//Checks for out of bounds exceptions and for player location that
-		// are west of the monster
-		if(mX-1>0&&!playerFound)
-		{
-			if(Environment.getCell(mY, mX-1).getLifeForm().getClass()==Player.class)
-			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY, mX-1);
-			}
-			else if(mX-2>0)
-			{
-				if(Environment.getCell(mY, mX+2).getLifeForm().getClass()==Player.class)
-				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY, mX-2);
-				}
-				else if(mX-3>0)
-				{
-					if(Environment.getCell(mY, mX-3).getLifeForm().getClass()==Player.class)
+					if (Environment.getCell(mY + 2, mX + 1).getLifeForm() != null
+							&& Environment.getCell(mY + 2, mX + 1).getLifeForm().getClass() == Player.class)
 					{
-						playerFound=true;
-						playerLoc = Environment.getCell(mY, mX-3);
+						playerFound = true;
+						playerLoc = Environment.getCell(mY + 2, mX + 1);
+						return;
+					}
+				} else if (mX + 2 < boundryX)
+				{
+					if (Environment.getCell(mY + 1, mX + 2).getLifeForm() != null
+							&& Environment.getCell(mY + 1, mX + 2).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY + 1, mX + 2);
+						return;
 					}
 				}
-			}	
-		}
-
-		/*Locations checked
-		 * 	     X
-		 * 	   []X.X.
-		 * 	 [][]X.X.X.
-		 * X.X.X.O.X.X.X.
-		 *   X.X.X.X.X.
-		 *     X.X.X.
-		 *       X.
-		 */
-
-		//Checks for out of bounds exceptions and for player location that
-		// are north-west of the monster
-		if(mY-1>0&&mX-1>0&&!playerFound)
-		{
-			if(Environment.getCell(mY-1, mX-1).getLifeForm().getClass()==Player.class)
-			{
-				playerFound=true;
-				playerLoc = Environment.getCell(mY-1, mX-1);
 			}
-			else if(mY-2>0)
+			// Checks for out of bounds exceptions and for player location
+			// that are south of the monster
+			if (mY + 1 < boundryY && playerFound == false)
 			{
-				if(Environment.getCell(mY-2, mX-1).getLifeForm().getClass()==Player.class)
+				if (Environment.getCell(mY+1, mX).getLifeForm() != null
+						&& Environment.getCell(mY + 1, mX).getLifeForm().getClass() == Player.class)
 				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-2, mX-1);
+					playerFound = true;
+					playerLoc = Environment.getCell(mY + 1, mX);
+					return;
+				} else if (mY + 2 < boundryY)
+				{
+					if (Environment.getCell(mY + 2, mX).getLifeForm() != null
+							&& Environment.getCell(mY + 2, mX).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY + 2, mX);
+						return;
+					} else if (mY + 3 < boundryY)
+					{
+						if (Environment.getCell(mY + 3, mX).getLifeForm() != null
+								&& Environment.getCell(mY + 3, mX).getLifeForm().getClass() == Player.class)
+						{
+							playerFound = true;
+							playerLoc = Environment.getCell(mY + 3, mX);
+							return;
+						}
+					}
 				}
 			}
-			else if(mX-2>0)
+			// Checks for out of bounds exceptions and for player location that
+			// are south-west of the monster
+			if (mY + 1 < boundryY && mX - 1 > 0 && playerFound == false)
 			{
-				if(Environment.getCell(mY-1, mX-2).getLifeForm().getClass()==Player.class)
+				if (Environment.getCell(mY + 1, mX - 1).getLifeForm() != null
+						&& Environment.getCell(mY + 1, mX - 1).getLifeForm().getClass() == Player.class)
 				{
-					playerFound=true;
-					playerLoc = Environment.getCell(mY-1, mX-2);
+					playerFound = true;
+					playerLoc = Environment.getCell(mY + 1, mX - 1);
+					return;
+				} else if (mY + 2 < boundryY)
+				{
+					if (Environment.getCell(mY + 2, mX - 1).getLifeForm() != null
+							&& Environment.getCell(mY + 2, mX - 1).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY + 2, mX - 1);
+						return;
+					}
+				} else if (mX - 2 > 0)
+				{
+					if (Environment.getCell(mY + 1, mX - 2).getLifeForm() != null
+							&& Environment.getCell(mY + 1, mX - 2).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY + 1, mX - 2);
+						return;
+					}
 				}
 			}
-		}
-
-		/*Locations checked
-		 * 	     X
-		 * 	   X.X.X.
-		 * 	 X.X.X.X.X.
-		 * X.X.X.O.X.X.X.
-		 *   X.X.X.X.X.
-		 *     X.X.X.
-		 *       X.
-		 */
-
+			// Checks for out of bounds exceptions and for player location that
+			// are west of the monster
+			if (mX - 1 > 0 && playerFound == false)
+			{
+				if (Environment.getCell(mY, mX - 1).getLifeForm() != null
+						&& Environment.getCell(mY, mX - 1).getLifeForm().getClass() == Player.class)
+				{
+					playerFound = true;
+					playerLoc = Environment.getCell(mY, mX - 1);
+					return;
+				} else if (mX - 2 > 0)
+				{
+					if (Environment.getCell(mY, mX - 2).getLifeForm() != null
+							&& Environment.getCell(mY, mX - 2).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY, mX - 2);
+						return;
+					} else if (mX - 3 > 0)
+					{
+						if (Environment.getCell(mY, mX - 3).getLifeForm() != null
+								&& Environment.getCell(mY, mX - 3).getLifeForm().getClass() == Player.class)
+						{
+							playerFound = true;
+							playerLoc = Environment.getCell(mY, mX - 3);
+							return;
+						}
+					}
+				}
+			}
+			// Checks for out of bounds exceptions and for player location that
+			// are north-west of the monster
+			if (mY - 1 > 0 && mX - 1 > 0 && playerFound == false)
+			{
+				if (Environment.getCell(mY - 1, mX - 1).getLifeForm() != null
+						&& Environment.getCell(mY - 1, mX - 1).getLifeForm().getClass() == Player.class)
+				{
+					playerFound = true;
+					playerLoc = Environment.getCell(mY - 1, mX - 1);
+					return;
+				} else if (mY - 2 > 0)
+				{
+					if (Environment.getCell(mY - 2, mX - 1).getLifeForm() != null
+							&& Environment.getCell(mY - 2, mX - 1).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY - 2, mX - 1);
+						return;
+					}
+				} else if (mX - 2 > 0)
+				{
+					if (Environment.getCell(mY - 1, mX - 2).getLifeForm() != null
+							&& Environment.getCell(mY - 1, mX - 2).getLifeForm().getClass() == Player.class)
+					{
+						playerFound = true;
+						playerLoc = Environment.getCell(mY - 1, mX - 2);
+						return;
+					}
+				}
+			}
 	}
 
 	//Moves the monster towards the player if there is an empty cell closer, or if not will move randomly
@@ -350,7 +298,7 @@ public class MonsterState
 			//Checks if the player is north of the monster
 			if(monster.getCell().getyLoc()>playerLoc.getyLoc())
 			{
-				if(north.getRep()!='#'||north.getLifeForm()==null)
+				if(north.getRep()!='#'&&north.getLifeForm()==null)
 				{
 					monster.moveLifeForm(north);
 					moved = true;
@@ -359,7 +307,7 @@ public class MonsterState
 			//Checks if the player is east of the monster
 			else if(monster.getCell().getxLoc()<playerLoc.getxLoc())
 			{
-				if(east.getRep()!='#'||east.getLifeForm()==null)
+				if(east.getRep()!='#'&&east.getLifeForm()==null)
 				{
 					monster.moveLifeForm(east);
 					moved = true;
@@ -368,7 +316,7 @@ public class MonsterState
 			//Checks if the player is south of the monster
 			else if(monster.getCell().getyLoc()<playerLoc.getyLoc())
 			{
-				if(south.getRep()!='#'||south.getLifeForm()==null)
+				if(south.getRep()!='#'&&south.getLifeForm()==null)
 				{
 					monster.moveLifeForm(south);
 					moved = true;
@@ -377,7 +325,7 @@ public class MonsterState
 			//Checks if the player is west of the monster
 			else if(monster.getCell().getxLoc()>playerLoc.getxLoc())
 			{
-				if(west.getRep()!='#'||south.getLifeForm()==null)
+				if(west.getRep()!='#'&&south.getLifeForm()==null)
 				{
 					monster.moveLifeForm(west);
 					moved = true;
@@ -465,5 +413,11 @@ public class MonsterState
 			Distance = Distance + (pY-mY);
 
 		return Distance;
+	}
+
+	public void attachMonster(Monster m)
+	{
+		monster = m;
+		hpAtChangeState = monster.getCurhp();
 	}
 }

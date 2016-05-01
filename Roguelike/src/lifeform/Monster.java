@@ -15,11 +15,21 @@ public class Monster extends LifeForm implements RoundObserver
 	MonsterState state;
 	
 	//A fully customizable monster
-	public Monster(String name, char rep, Item head, Item torso, Item arms,
+	public Monster(String name, char rep, int d, Item head, Item torso, Item arms,
 			Item legs)
 	{
 		super(name, rep, head, torso, arms, legs);
 		
+		if(d<1)
+			d = 1;
+		
+		difficulty = d;
+		str = (int)((head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR())/((double)10/(double)difficulty));
+		spd = (int)((head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD())/((double)10/(double)difficulty));
+		hp[0] = (int)((head.getHP()+torso.getHP()+arms.getHP()+legs.getHP())/((double)5/(double)difficulty));
+		hp[1] = hp[0];
+		ap[0] = 1;
+		ap[1] = ap[0];
 	}
 	
 	//Generates a default monster with extremely basic stats
@@ -27,19 +37,19 @@ public class Monster extends LifeForm implements RoundObserver
 	{
 		difficulty = 1;
 		
-		BodyPart head = new BodyPart(0);
-		BodyPart torso = new BodyPart(1);
-		BodyPart arms = new BodyPart(2);
-		BodyPart legs = new BodyPart(3);
-		equipPart(head);
-		equipPart(torso);
-		equipPart(arms);
-		equipPart(legs);
+		BodyPart h = new BodyPart(0);
+		BodyPart t = new BodyPart(1);
+		BodyPart a = new BodyPart(2);
+		BodyPart l = new BodyPart(3);
+		head = h;
+		torso = t;
+		arms = a;
+		legs = l;
 		
 		//Sets the monsters default stats; THEY WILL VARY EACH TIME
-		str = (head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR())/(10/difficulty);
-		spd = (head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD())/(10/difficulty);
-		hp[0] = (head.getHP()+torso.getHP()+arms.getHP()+legs.getHP())/(5/difficulty);
+		str = (int)((head.getSTR()+torso.getSTR()+arms.getSTR()+legs.getSTR())/((double)10/(double)difficulty));
+		spd = (int)((head.getSPD()+torso.getSPD()+arms.getSPD()+legs.getSPD())/((double)10/(double)difficulty));
+		hp[0] = (int)((head.getHP()+torso.getHP()+arms.getHP()+legs.getHP())/((double)5/(double)difficulty));
 		hp[1] = hp[0];
 		ap[0] = 1;
 		ap[1] = ap[0];
@@ -49,6 +59,7 @@ public class Monster extends LifeForm implements RoundObserver
 	public void changeState(MonsterState s)
 	{
 		state = s;
+		s.attachMonster(this);
 	}
 	
 	//activates the monsters state
@@ -58,7 +69,7 @@ public class Monster extends LifeForm implements RoundObserver
 		if(hp[0]<=0)
 		{
 			dropItem(location, rollDrop());
-			moveLifeForm(null);
+			location = null;
 		}
 		else
 			state.activate();
@@ -128,5 +139,10 @@ public class Monster extends LifeForm implements RoundObserver
 		}
 		
 		return drop;
+	}
+	
+	public MonsterState getState()
+	{
+		return state;
 	}
 }

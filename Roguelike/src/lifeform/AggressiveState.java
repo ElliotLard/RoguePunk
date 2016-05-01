@@ -23,7 +23,7 @@ public class AggressiveState extends MonsterState
 		//Tries to move towards the player, or attack if it does find the player
 		if(playerFound)
 		{
-			if(getDistance()>1)
+			if(getDistance()==1)
 				playerLoc.getLifeForm().takeDamage(monster.calcDamage());
 			else
 				moveTowardPlayer();
