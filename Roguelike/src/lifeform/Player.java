@@ -46,25 +46,33 @@ public class Player extends LifeForm
 		if (key == 'w')
 		{
 			Cell up = Environment.getCell(this.getyLocation()-1, this.getxLocation());
-			if(up.getLifeForm()==null)
+			if(up.getLifeForm()!=null)
+				up.getLifeForm().takeDamage(calcDamage());
+			else
 				moveLifeForm(up);
 		}
 		else if (key == 's')
 		{
 			Cell down = Environment.getCell(this.getyLocation()+1, this.getxLocation());
-			if(down.getLifeForm()==null)
+			if(down.getLifeForm()!=null)
+				down.getLifeForm().takeDamage(calcDamage());
+			else
 				moveLifeForm(down);
 		}
 		else if (key == 'a')
 		{
 			Cell left = Environment.getCell(this.getyLocation(), this.getxLocation()-1);
-			if(left.getLifeForm()==null)	
+			if(left.getLifeForm()!=null)
+				left.getLifeForm().takeDamage(calcDamage());
+			else
 				moveLifeForm(left);
 		}
 		else if (key == 'd')
 		{
 			Cell right = Environment.getCell(this.getyLocation(), this.getxLocation()+1);
-			if(right.getLifeForm()==null)
+			if(right.getLifeForm()!=null)
+				right.getLifeForm().takeDamage(calcDamage());
+			else
 				moveLifeForm(right);
 		}
 	}

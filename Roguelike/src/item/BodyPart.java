@@ -40,7 +40,7 @@ public class BodyPart extends Item
 	private void GenerateStats()
 	{
 		Random rand = new Random();
-		str = rand.nextInt((50)/(5/rarity))+1;
+		str = rand.nextInt((50)/(10/rarity))+1;
 		hp = (rand.nextInt(5)+1)*rarity;
 		if(BodySlot == 3)
 			spd = 1;

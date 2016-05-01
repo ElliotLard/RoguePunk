@@ -1,6 +1,7 @@
 package lifeform;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import GUI.Displayable;
 import environment.Cell;
@@ -115,6 +116,26 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		c.addLifeForm(this);
 	}
 	
+	//Aaron - Calculates damage for monsters and player
+	protected int calcDamage()
+	{
+		Random ran = new Random();
+		int rarity = head.getRarity();
+		if(rarity<torso.getRarity())
+			rarity = torso.getRarity();
+		if(rarity<arms.getRarity())
+			rarity = arms.getRarity();
+		if(rarity<legs.getRarity())
+			rarity = legs.getRarity();
+		
+		int damage = str+(ran.nextInt(rarity*5)+1);
+		damage = damage/4;
+		
+		return damage;
+	}
+	
+	
+	//Getters for some of lifeform's data
 	public Cell getCell(){
 		return location;
 	}
