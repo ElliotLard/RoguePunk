@@ -33,10 +33,9 @@ public class DungeonAdapter
 			{
 				for (int x = 0; x < Environment.WIDTH; x++)
 				{
-					tileMap[y][x] = GameState.tiles[y][x].getRep();
+					tileMap[y][x] = Editor.tiles[y][x].getRep();
 					writer.print(tileMap[y][x] + " ");
 				}
-				writer.println();
 			}
 
 			writer.close();
