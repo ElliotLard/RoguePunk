@@ -1,11 +1,13 @@
 package item;
 
+import GUI.Displayable;
+
 //Author: Aaron Gerber
 //Description: Provides a base for all items to be able to work	
 
 import lifeform.LifeForm;
 
-public abstract class Item
+public abstract class Item implements Displayable
 {
 	//All characteristics of items; set to protected so any Item can access them freely
 	protected int str, hp, spd, rarity, uses;
@@ -70,11 +72,6 @@ public abstract class Item
 		return uses;
 	}
 
-	public char getRep()
-	{
-		return rep;
-	}
-
 	public String getName()
 	{
 		return name;
@@ -83,6 +80,12 @@ public abstract class Item
 	public String getDescription()
 	{
 		return description;
+	}
+	
+	@Override
+	public char getRep()
+	{
+		return rep;
 	}
 	
 	
