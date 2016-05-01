@@ -12,8 +12,7 @@ public class Runner
 {
 	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException
 	{
-		Environment world = Environment.getLevel("testLevel");
+		Environment world = Environment.getLevel("levelName");
 		Game gui = new Game();
-		
 	}
 }

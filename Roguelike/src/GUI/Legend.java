@@ -2,18 +2,14 @@ package GUI;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import lifeform.Player;
+
 public class Legend
 {
 	Player player;
 	JLabel name;
 	JLabel health;
 	JLabel strength;
-	JLabel head;
-	JLabel torso;
-	JLabel arms;
-	JLabel legs;
 	JLabel inventory;
 	JPanel legend;
 	public Legend(Player player)

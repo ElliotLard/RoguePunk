@@ -13,6 +13,5 @@ public class EditorRunner
 	{
 		Environment world = Environment.getLevel("testLevel");
 		DungeonEditor gui = new DungeonEditor();
-		
 	}
 }
