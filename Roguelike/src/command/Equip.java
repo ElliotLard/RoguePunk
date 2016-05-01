@@ -22,7 +22,6 @@ public class Equip implements Command
 	@Override
 	public void execute(char key)
 	{
-		player.pickUp(player.getCell(), player.getCell().getItemOnGround());
-		
+		player.pickUp(player.getCell(), player.getCell().getItem(0));		
 	}
 }

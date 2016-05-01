@@ -27,7 +27,6 @@ public class EditorTile extends JLabel implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
-		System.out.println("x");
 		EditorTile.isPressed = true;
 	}
 	@Override

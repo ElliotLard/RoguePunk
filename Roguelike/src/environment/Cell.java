@@ -11,7 +11,7 @@ public class Cell implements Displayable
 {	
 	int xLoc, yLoc;
 	LifeForm inhabitant;
-	private ArrayList<BodyPart> onGround = new ArrayList<BodyPart>();;
+	private ArrayList<Item> onGround = new ArrayList<Item>();;
 	char rep;
 	/**
 	 * @author elliotlard
@@ -56,20 +56,16 @@ public class Cell implements Displayable
 		inhabitant = null;
 	}
 	
-	public BodyPart getItemOnGround(){
-		return onGround.get(0);
-	}
-	
 	/**
 	 * @author elliotlard
 	 * 
 	 * adds the desired item to the ground
 	 * 
-	 * @param  item	the item you wish to add to the cell
+	 * @param  i	the item you wish to add to the cell
 	 */
-	public void addItem(BodyPart item)
+	public void addItem(Item i)
 	{
-		onGround.add(item);
+		onGround.add(i);
 	}
 	
 	/**
@@ -103,7 +99,12 @@ public class Cell implements Displayable
 	{
 		return this.xLoc;
 	}
-	
+	/**
+	 * @author elliotlard
+	 * 
+	 * @return		the character that will be used to display
+	 * 				this character
+	 */
 	@Override
 	public char getRep()
 	{
@@ -111,8 +112,27 @@ public class Cell implements Displayable
 			return inhabitant.getRep();
 		return rep;
 	}
+	
+	/**
+	 * @author elliotlard
+	 * 
+	 * @return		the lifeForm that is in the cell	
+	 */
 	public LifeForm getLifeForm()
 	{
 		return inhabitant;
+	}
+	
+	/**
+	 * @author elliotlard
+	 * 
+	 * @param i		index of the item you want
+	 * @return		the item at that index
+	 */
+	public Item getItem(int i)
+	{
+		if(onGround.isEmpty())
+			return null;
+		return onGround.get(0);
 	}
 }

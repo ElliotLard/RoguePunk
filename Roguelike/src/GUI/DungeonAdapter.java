@@ -9,7 +9,6 @@ import environment.Environment;
 public class DungeonAdapter
 {
 	private char[][] tileMap = new char[Environment.HEIGHT][Environment.WIDTH];
-	
 	public char[][] getMap()
 	{
 		for(int y = 0;y < Environment.HEIGHT;y++)
@@ -21,7 +20,6 @@ public class DungeonAdapter
 		}
 		return tileMap;
 	}
-	
 	public void writeDungeon(String fileName) throws FileNotFoundException, UnsupportedEncodingException
 	{
 		fileName = "Assets/" + fileName;
