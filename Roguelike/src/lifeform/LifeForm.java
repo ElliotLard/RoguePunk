@@ -59,9 +59,8 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		loc.removeItem(i);
 	}
 	
-	public Item dropItem(Cell loc, Item i){
-		return i;
-		
+	public void dropItem(Cell loc, BodyPart i){
+		loc.addItem(i);		
 	}
 	
 	public void equipPart(BodyPart i){
