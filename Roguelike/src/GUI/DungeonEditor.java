@@ -65,15 +65,10 @@ public class DungeonEditor extends JFrame implements ActionListener
 		options.add(upButton);
 		options.add(writeButton);
 		options.add(fileName);
-		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setPreferredSize(GUIConstants.WINDOWSIZE);
 		this.setLayout(new BorderLayout());
-
 		gameSpace = new Editor();
-
-		
-		
 		this.add(gameSpace.get(), BorderLayout.WEST);
 		this.add(options, BorderLayout.EAST);
 		this.pack();
@@ -112,7 +107,6 @@ public class DungeonEditor extends JFrame implements ActionListener
 		}
 		else if(e.getSource() == writeButton)
 		{
-			
 			try
 			{
 				DungeonAdapter writer = new DungeonAdapter();

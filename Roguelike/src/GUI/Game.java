@@ -14,10 +14,12 @@ public class Game
 {
 	JFrame game;
 	DisplayState state;
+	Legend legend;
 
 	
 	public Game()
 	{
+		legend = new Legend();
 		Player player = new Player();
 		InvokerBuilder builder = new InvokerBuilder(player, this);
 		KeyListener listener = builder.getInvoker().getKeyListener();
@@ -40,6 +42,7 @@ public class Game
 		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.setPreferredSize(GUIConstants.WINDOWSIZE);
 		game.setLayout(new BorderLayout());
+		game.add(legend.get(), BorderLayout.EAST);
 		game.add(state.get(), BorderLayout.WEST);
 		game.pack();
 		game.setVisible(true);
