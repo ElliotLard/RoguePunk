@@ -1,9 +1,13 @@
 package item;
 
+//Author: Aaron Gerber
+//Heals the life form that picks the item up by hitting them with negative points of damage
+
 public class HealingItem extends Item
 {
 	int hpRestore;
 	
+	//A fully customizable healing item
 	public HealingItem(int r, int u, String n, String d, int hp)
 	{
 		super(n,d,r,u);
@@ -11,6 +15,7 @@ public class HealingItem extends Item
 		
 	}
 	
+	//A default constructor
 	public HealingItem()
 	{
 		super("Healing Potion","Heals the user",1,3);

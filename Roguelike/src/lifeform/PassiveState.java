@@ -1,6 +1,7 @@
 package lifeform;
 
-import java.util.Random;
+//Author: Aaron Gerber
+//A passive state that does nothing unless attacked
 
 public class PassiveState extends MonsterState
 {
