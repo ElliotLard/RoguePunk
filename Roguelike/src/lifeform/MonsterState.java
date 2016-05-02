@@ -42,7 +42,7 @@ public class MonsterState
 		if (mY - 1 > 0)
 		{
 			if (Environment.getCell(mY - 1, mX).getLifeForm() != null
-					&& Environment.getCell(mY - 1, mX).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY - 1, mX).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY - 1, mX);
@@ -50,7 +50,7 @@ public class MonsterState
 			} else if (mY - 2 > 0)
 			{
 				if (Environment.getCell(mY - 2, mX).getLifeForm() != null
-						&& Environment.getCell(mY - 2, mX).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY - 2, mX).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY - 2, mX);
@@ -58,7 +58,7 @@ public class MonsterState
 				} else if (mY - 3 > 0)
 				{
 					if (Environment.getCell(mY - 3, mX).getLifeForm() != null
-							&& Environment.getCell(mY - 3, mX).getLifeForm().getClass() == Player.class)
+							&& Environment.getCell(mY - 3, mX).getLifeForm().getClass().isInstance(Player.class))
 					{
 						playerFound = true;
 						playerLoc = Environment.getCell(mY - 3, mX);
@@ -74,7 +74,7 @@ public class MonsterState
 		if (mY - 1 > 0 && mX + 1 < boundryX && playerFound == false)
 		{
 			if (Environment.getCell(mY - 1, mX + 1).getLifeForm() != null
-					&& Environment.getCell(mY - 1, mX + 1).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY - 1, mX + 1).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY - 1, mX + 1);
@@ -82,7 +82,7 @@ public class MonsterState
 			} else if (mY - 2 > 0)
 			{
 				if (Environment.getCell(mY - 2, mX + 1).getLifeForm() != null
-						&& Environment.getCell(mY - 2, mX + 1).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY - 2, mX + 1).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY - 2, mX + 1);
@@ -91,7 +91,7 @@ public class MonsterState
 			} else if (mX + 2 < boundryX)
 			{
 				if (Environment.getCell(mY - 1, mX + 2).getLifeForm() != null
-						&& Environment.getCell(mY - 1, mX + 2).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY - 1, mX + 2).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY - 1, mX + 2);
@@ -104,7 +104,7 @@ public class MonsterState
 		if (mX + 1 < boundryX && playerFound == false)
 		{
 			if (Environment.getCell(mY, mX + 1).getLifeForm() != null
-					&& Environment.getCell(mY + 1, mX).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY, mX+1).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY, mX + 1);
@@ -112,7 +112,7 @@ public class MonsterState
 			} else if (mX + 2 < boundryX)
 			{
 				if (Environment.getCell(mY, mX + 2).getLifeForm() != null
-						&& Environment.getCell(mY, mX + 2).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY, mX + 2).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY, mX + 2);
@@ -120,7 +120,7 @@ public class MonsterState
 				} else if (mX + 3 < boundryX)
 				{
 					if (Environment.getCell(mY, mX + 3).getLifeForm() != null
-							&& Environment.getCell(mY, mX + 3).getLifeForm().getClass() == Player.class)
+							&& Environment.getCell(mY, mX + 3).getLifeForm().getClass().isInstance(Player.class))
 					{
 						playerFound = true;
 						playerLoc = Environment.getCell(mY, mX + 3);
@@ -134,7 +134,7 @@ public class MonsterState
 		if (mY + 1 < boundryY && mX + 1 < boundryX && playerFound == false)
 		{
 			if (Environment.getCell(mY + 1, mX + 1).getLifeForm() != null
-					&& Environment.getCell(mY + 1, mX + 1).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY + 1, mX + 1).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY + 1, mX + 1);
@@ -142,7 +142,7 @@ public class MonsterState
 			} else if (mY + 2 < boundryY)
 			{
 				if (Environment.getCell(mY + 2, mX + 1).getLifeForm() != null
-						&& Environment.getCell(mY + 2, mX + 1).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY + 2, mX + 1).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY + 2, mX + 1);
@@ -151,7 +151,7 @@ public class MonsterState
 			} else if (mX + 2 < boundryX)
 			{
 				if (Environment.getCell(mY + 1, mX + 2).getLifeForm() != null
-						&& Environment.getCell(mY + 1, mX + 2).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY + 1, mX + 2).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY + 1, mX + 2);
@@ -164,7 +164,7 @@ public class MonsterState
 		if (mY + 1 < boundryY && playerFound == false)
 		{
 			if (Environment.getCell(mY+1, mX).getLifeForm() != null
-					&& Environment.getCell(mY + 1, mX).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY + 1, mX).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY + 1, mX);
@@ -172,7 +172,7 @@ public class MonsterState
 			} else if (mY + 2 < boundryY)
 			{
 				if (Environment.getCell(mY + 2, mX).getLifeForm() != null
-						&& Environment.getCell(mY + 2, mX).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY + 2, mX).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY + 2, mX);
@@ -180,7 +180,7 @@ public class MonsterState
 				} else if (mY + 3 < boundryY)
 				{
 					if (Environment.getCell(mY + 3, mX).getLifeForm() != null
-							&& Environment.getCell(mY + 3, mX).getLifeForm().getClass() == Player.class)
+							&& Environment.getCell(mY + 3, mX).getLifeForm().getClass().isInstance(Player.class))
 					{
 						playerFound = true;
 						playerLoc = Environment.getCell(mY + 3, mX);
@@ -194,7 +194,7 @@ public class MonsterState
 		if (mY + 1 < boundryY && mX - 1 > 0 && playerFound == false)
 		{
 			if (Environment.getCell(mY + 1, mX - 1).getLifeForm() != null
-					&& Environment.getCell(mY + 1, mX - 1).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY + 1, mX - 1).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY + 1, mX - 1);
@@ -202,7 +202,7 @@ public class MonsterState
 			} else if (mY + 2 < boundryY)
 			{
 				if (Environment.getCell(mY + 2, mX - 1).getLifeForm() != null
-						&& Environment.getCell(mY + 2, mX - 1).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY + 2, mX - 1).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY + 2, mX - 1);
@@ -211,7 +211,7 @@ public class MonsterState
 			} else if (mX - 2 > 0)
 			{
 				if (Environment.getCell(mY + 1, mX - 2).getLifeForm() != null
-						&& Environment.getCell(mY + 1, mX - 2).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY + 1, mX - 2).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY + 1, mX - 2);
@@ -224,7 +224,7 @@ public class MonsterState
 		if (mX - 1 > 0 && playerFound == false)
 		{
 			if (Environment.getCell(mY, mX - 1).getLifeForm() != null
-					&& Environment.getCell(mY, mX - 1).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY, mX - 1).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY, mX - 1);
@@ -232,7 +232,7 @@ public class MonsterState
 			} else if (mX - 2 > 0)
 			{
 				if (Environment.getCell(mY, mX - 2).getLifeForm() != null
-						&& Environment.getCell(mY, mX - 2).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY, mX - 2).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY, mX - 2);
@@ -240,7 +240,7 @@ public class MonsterState
 				} else if (mX - 3 > 0)
 				{
 					if (Environment.getCell(mY, mX - 3).getLifeForm() != null
-							&& Environment.getCell(mY, mX - 3).getLifeForm().getClass() == Player.class)
+							&& Environment.getCell(mY, mX - 3).getLifeForm().getClass().isInstance(Player.class))
 					{
 						playerFound = true;
 						playerLoc = Environment.getCell(mY, mX - 3);
@@ -254,7 +254,7 @@ public class MonsterState
 		if (mY - 1 > 0 && mX - 1 > 0 && playerFound == false)
 		{
 			if (Environment.getCell(mY - 1, mX - 1).getLifeForm() != null
-					&& Environment.getCell(mY - 1, mX - 1).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY - 1, mX - 1).getLifeForm().getClass().isInstance(Player.class))
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY - 1, mX - 1);
@@ -262,7 +262,7 @@ public class MonsterState
 			} else if (mY - 2 > 0)
 			{
 				if (Environment.getCell(mY - 2, mX - 1).getLifeForm() != null
-						&& Environment.getCell(mY - 2, mX - 1).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY - 2, mX - 1).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY - 2, mX - 1);
@@ -271,7 +271,7 @@ public class MonsterState
 			} else if (mX - 2 > 0)
 			{
 				if (Environment.getCell(mY - 1, mX - 2).getLifeForm() != null
-						&& Environment.getCell(mY - 1, mX - 2).getLifeForm().getClass() == Player.class)
+						&& Environment.getCell(mY - 1, mX - 2).getLifeForm().getClass().isInstance(Player.class))
 				{
 					playerFound = true;
 					playerLoc = Environment.getCell(mY - 1, mX - 2);
