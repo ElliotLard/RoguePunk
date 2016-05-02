@@ -9,7 +9,7 @@ import lifeform.LifeForm;
 
 public class BodyPart extends Item
 {
-	int BodySlot;			//0 for head; 1 for torso; 2 for arms; 3 for legs
+	private int BodySlot;			//0 for head; 1 for torso; 2 for arms; 3 for legs
 	
 	//A customizable body part constructor
 	public BodyPart(String n, String d, int r, int u, int s)

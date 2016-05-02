@@ -135,4 +135,8 @@ public class Cell implements Displayable
 			return null;
 		return onGround.get(0);
 	}
+	public boolean hasItem()
+	{
+		return !onGround.isEmpty();
+	}
 }

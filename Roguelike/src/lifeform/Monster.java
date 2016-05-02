@@ -11,14 +11,13 @@ import item.*;
 public class Monster extends LifeForm implements RoundObserver
 {
 	//Difficulty can never be 0
-	int difficulty;
-	MonsterState state;
+	private int difficulty;
+	private MonsterState state;
 	
 	//A fully customizable monster
-	public Monster(String name, char rep, int d, Item head, Item torso, Item arms,
-			Item legs)
+	public Monster(String name, char rep, int d, Item h, Item t, Item a, Item l)
 	{
-		super(name, rep, head, torso, arms, legs);
+		super(name, rep, h, t, a, l);
 		
 		if(d<1)
 			d = 1;
@@ -68,7 +67,9 @@ public class Monster extends LifeForm implements RoundObserver
 	{
 		if(hp[0]<=0)
 		{
-			dropItem(location, rollDrop());
+			Item drop = rollDrop();
+			if(drop != null)
+				dropItem(location, drop);
 			location = null;
 		}
 		else
@@ -82,7 +83,7 @@ public class Monster extends LifeForm implements RoundObserver
 		Item drop = null;
 		
 		//Loot table for the monsters
-		switch(ran.nextInt(10)+1)
+		switch(ran.nextInt(15)+1)
 		{
 			case 1:
 				drop = head;
@@ -144,5 +145,10 @@ public class Monster extends LifeForm implements RoundObserver
 	public MonsterState getState()
 	{
 		return state;
+	}
+	
+	public int getDifficulty()
+	{
+		return difficulty;
 	}
 }

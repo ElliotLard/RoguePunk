@@ -55,9 +55,6 @@ public class TestMonster
 		//Checks that jerry will change states if hit
 		jerry.takeDamage(1);
 		
-		System.out.println(jerry.getCurhp());
-		System.out.println(jerry.getMaxhp());
-		
 		observe.updateObserver();
 		assertEquals(jerry.getState().getClass(), aggressive.getClass());
 		
@@ -65,24 +62,25 @@ public class TestMonster
 		
 		observe.updateObserver();
 		
+		//Confirms that jerry did move towards mario
 		assertEquals(jerry.getCell(), Environment.getCell(6, 5));
 		
 		observe.updateObserver();
-		
-		System.out.println(mario.getCurhp());
-		System.out.println(mario.getMaxhp());
 				
+		//Confirms jerry hit mario
 		assertTrue(mario.getCurhp()!=mario.getMaxhp());
 		
-		jerry.takeDamage(mario.calcDamage());
+		testCell = jerry.getCell();
 		
-		System.out.println(jerry.getCurhp());
-		System.out.println(jerry.getMaxhp());
-		
+		//Kills jerry off
 		jerry.takeDamage(jerry.getCurhp());
 		
 		observe.updateObserver();
 		
 		assertTrue(jerry.getCell()==null);
+		
+		//Every once in a while this WILL fail, since monsters do not always drop an item
+		assertTrue(testCell.hasItem());
+		
 	}
 }

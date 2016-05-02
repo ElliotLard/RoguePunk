@@ -6,14 +6,7 @@ package item;
 public class Reinforcer extends Item
 {
 
-	int Modifier;
-	
-	//Allows the setting of the material
-	public Reinforcer(String n, String d, int r, int u, int mod)
-	{
-		super(n, d, r, u);
-		Modifier = mod;
-	}
+	private int Modifier;
 	
 	//Sets the default for a material
 		public Reinforcer(int u)

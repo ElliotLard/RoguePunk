@@ -5,7 +5,7 @@ package item;
 
 public class HealingItem extends Item
 {
-	int hpRestore;
+	private int hpRestore;
 	
 	//A fully customizable healing item
 	public HealingItem(int r, int u, String n, String d, int hp)

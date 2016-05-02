@@ -6,7 +6,7 @@ package lifeform;
 
 public class AggressiveState extends MonsterState
 {
-	int countDown = 3;
+	private int countDown = 3;
 	
 	public void activate()
 	{
