@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
+import lifeform.Monster;
+import lifeform.MonsterMaker;
+
 public class Environment
 {
 	public static final int HEIGHT = 60, WIDTH = 80;
@@ -50,9 +53,18 @@ public class Environment
 				if (input.hasNextLine())
 				{
 					parse = (input.nextLine().split(" "));	
+					
 					for (int x = 0; x < Environment.WIDTH; x++)
 					{
-						tileMap[y][x] = new Cell(y, x, parse[x].charAt(0));
+						char c = parse[x].charAt(0);
+						if(c != '#' && c != '.')
+						{
+							Monster m = MonsterMaker.genMonster();
+							tileMap[y][x] = new Cell(y, x, '.');
+							tileMap[y][x].addLifeForm(m);
+						}
+						else
+							tileMap[y][x] = new Cell(y, x, c);
 					}
 				}
 			}
