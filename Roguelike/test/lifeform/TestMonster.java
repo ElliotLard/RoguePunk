@@ -62,6 +62,8 @@ public class TestMonster
 		
 		observe.updateObserver();
 		
+		if(jerry.getCurhp()>=1)
+		{
 		//Confirms that jerry did move towards mario
 		assertEquals(jerry.getCell(), Environment.getCell(6, 5));
 		
@@ -81,6 +83,6 @@ public class TestMonster
 		
 		//Every once in a while this WILL fail, since monsters do not always drop an item
 		assertTrue(testCell.hasItem());
-		
+		}
 	}
 }
