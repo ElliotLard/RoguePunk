@@ -104,7 +104,7 @@ public class MonsterState
 		if (mX + 1 < boundryX && playerFound == false)
 		{
 			if (Environment.getCell(mY, mX + 1).getLifeForm() != null
-					&& Environment.getCell(mY + 1, mX).getLifeForm().getClass() == Player.class)
+					&& Environment.getCell(mY , mX+1).getLifeForm().getClass() == Player.class)
 			{
 				playerFound = true;
 				playerLoc = Environment.getCell(mY, mX + 1);
@@ -357,28 +357,28 @@ public class MonsterState
 			switch(direction)
 			{
 			case 1:
-				if(north.getRep()!='#'||north.getLifeForm()==null)
+				if(north.getRep()!='#'&&north.getLifeForm()==null)
 				{
 					monster.moveLifeForm(north);
 					moved = true;
 				}
 				break;
 			case 2:
-				if(east.getRep()!='#'||east.getLifeForm()==null)
+				if(east.getRep()!='#'&&east.getLifeForm()==null)
 				{
 					monster.moveLifeForm(east);
 					moved = true;
 				}
 				break;
 			case 3:
-				if(south.getRep()!='#'||south.getLifeForm()==null)
+				if(south.getRep()!='#'&&south.getLifeForm()==null)
 				{
 					monster.moveLifeForm(south);
 					moved = true;
 				}
 				break;
 			case 4:
-				if(west.getRep()!='#'||west.getLifeForm()==null)
+				if(west.getRep()!='#'&&west.getLifeForm()==null)
 				{
 					monster.moveLifeForm(west);
 					moved = true;
