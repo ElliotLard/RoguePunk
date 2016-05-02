@@ -51,6 +51,7 @@ public class DungeonAdapter
 					tileMap[y][x] = Editor.tiles[y][x].getRep();
 					writer.print(tileMap[y][x] + " ");
 				}
+				writer.print("\n");
 			}
 
 			writer.close();
