@@ -51,7 +51,6 @@ public class Player extends LifeForm
 				else
 				{
 					moveLifeForm(up);
-					Environment.observe.updateObserver();
 				}
 			}
 		}
@@ -64,7 +63,6 @@ public class Player extends LifeForm
 				else
 				{
 					moveLifeForm(down);
-					Environment.observe.updateObserver();
 				}
 			}
 		}
@@ -77,7 +75,6 @@ public class Player extends LifeForm
 				else
 				{
 					moveLifeForm(left);
-					Environment.observe.updateObserver();
 				}
 			}
 		}
@@ -90,7 +87,6 @@ public class Player extends LifeForm
 				else
 				{
 					moveLifeForm(right);
-					Environment.observe.updateObserver();
 				}
 			}
 		}
