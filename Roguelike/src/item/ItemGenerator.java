@@ -67,6 +67,7 @@ public class ItemGenerator
 					roll-=1;
 				}
 			default:
+				drop = new HealingItem();
 				break;
 		}
 		return drop;
@@ -136,6 +137,7 @@ public class ItemGenerator
 					roll-=1;
 				}
 			default:
+				drop = new HealingItem();
 				break;
 		}
 		return drop;
