@@ -2,6 +2,7 @@ package lifeform;
 
 import java.util.Random;
 
+import environment.Environment;
 import gameplay.*;
 import item.*;
 
@@ -29,6 +30,7 @@ public class Monster extends LifeForm implements RoundObserver
 		hp[1] = hp[0];
 		ap[0] = 1;
 		ap[1] = ap[0];
+		Environment.observe.addObserver(this);
 	}
 	
 	//Generates a default monster with extremely basic stats

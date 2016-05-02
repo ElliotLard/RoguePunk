@@ -53,6 +53,7 @@ public class GameState extends DisplayState
 	 */
 	public void updateGame()
 	{
+		Environment.observe.updateObserver();
 		char [][] tileMap = adapter.getMap();
 		for(int y = 0;y < Environment.HEIGHT;y++)
 		{
