@@ -51,6 +51,8 @@ public class MyKeyListener implements KeyListener
 		case 'x':
 			equip.execute(entered);
 			break;
+			default:
+				break;
 		}
 		game.updateState();
 	}

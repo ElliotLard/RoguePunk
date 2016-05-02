@@ -28,7 +28,7 @@ public class Game
 	{
 		Player player = new Player();
 		legend = new Legend(player);
-		Environment.getLevel("level1");
+		Environment.getLevel("worldstar");
 		InvokerBuilder.getInvoker(player, this);
 		KeyListener listener = InvokerBuilder.getInvoker(player, this).getKeyListener();
 		state = new MenuState(this);

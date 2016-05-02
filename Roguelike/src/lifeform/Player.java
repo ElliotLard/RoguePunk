@@ -49,7 +49,10 @@ public class Player extends LifeForm
 				if(up.getLifeForm()!=null)
 					up.getLifeForm().takeDamage(calcDamage());
 				else
+				{
 					moveLifeForm(up);
+					Environment.observe.updateObserver();
+				}
 			}
 		}
 		else if (key == 's')
@@ -59,7 +62,10 @@ public class Player extends LifeForm
 				if(down.getLifeForm()!=null)
 					down.getLifeForm().takeDamage(calcDamage());
 				else
+				{
 					moveLifeForm(down);
+					Environment.observe.updateObserver();
+				}
 			}
 		}
 		else if (key == 'a')
@@ -69,7 +75,10 @@ public class Player extends LifeForm
 				if(left.getLifeForm()!=null)
 					left.getLifeForm().takeDamage(calcDamage());
 				else
+				{
 					moveLifeForm(left);
+					Environment.observe.updateObserver();
+				}
 			}
 		}
 		else if (key == 'd')
@@ -79,9 +88,11 @@ public class Player extends LifeForm
 				if(right.getLifeForm()!=null)
 					right.getLifeForm().takeDamage(calcDamage());
 				else
+				{
 					moveLifeForm(right);
+					Environment.observe.updateObserver();
+				}
 			}
 		}
-		Environment.observe.updateObserver();
 	}
 }
