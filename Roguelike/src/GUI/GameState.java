@@ -4,13 +4,24 @@ import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
-import environment.Environment;
 
+import editor.DungeonAdapter;
+import environment.Environment;
+/**
+ * The GameState holds all of the visuals of the environment
+ * 
+ * @author elliotlard
+ *
+ */
 public class GameState extends DisplayState
 {
 
 	DungeonAdapter adapter;
 	public static GameTile tiles[][];
+	/**
+	 * initializes the GameState
+	 * @param g the game to be added to
+	 */
 	public GameState(Game g)
 	{
 		super(g);
@@ -20,6 +31,9 @@ public class GameState extends DisplayState
 		displayPanel.setBackground(Color.BLACK);
 		fill();
 	}
+	/**
+	 * initializes the tilemap array
+	 */
 	private void fill()
 	{
 		char[][] tileMap = adapter.getMap();
@@ -33,6 +47,10 @@ public class GameState extends DisplayState
 			}
 		}
 	}	
+	
+	/**
+	 * updates the tilemap array to be current info
+	 */
 	public void updateGame()
 	{
 		char [][] tileMap = adapter.getMap();
@@ -44,6 +62,12 @@ public class GameState extends DisplayState
 			}
 		}
 	}
+	/**
+	 * returns an individual tile
+	 * @param y
+	 * @param x
+	 * @return
+	 */
 	public GameTile getTile(int y, int x)
 	{
 		return tiles[y][x];

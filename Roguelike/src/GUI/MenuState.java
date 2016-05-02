@@ -12,7 +12,10 @@ public class MenuState extends DisplayState implements ActionListener
 	JButton start;
 	JButton editor;
 	JButton exit;
-	
+	/**
+	 * initializes the menu
+	 * @param g
+	 */
 	public MenuState(Game g)
 	{
 		super(g);
@@ -34,7 +37,9 @@ public class MenuState extends DisplayState implements ActionListener
 		displayPanel.add(editor);
 		displayPanel.add(exit);
 	}
-
+	/**
+	 * does the appropriate actions for button presses
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

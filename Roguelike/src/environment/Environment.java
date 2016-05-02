@@ -61,7 +61,7 @@ public class Environment
 						{
 							Monster m = MonsterMaker.genMonster();
 							tileMap[y][x] = new Cell(y, x, '.');
-							tileMap[y][x].addLifeForm(m);
+							m.moveLifeForm(tileMap[y][x]);
 						}
 						else
 							tileMap[y][x] = new Cell(y, x, c);

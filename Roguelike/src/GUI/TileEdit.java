@@ -3,6 +3,9 @@ package GUI;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import editor.DungeonEditor;
+import editor.EditorTile;
+
 public class TileEdit extends GameTile implements MouseListener
 {
 

@@ -3,7 +3,11 @@ package GUI;
 import java.awt.Dimension;
 
 import environment.Environment;
-
+/**
+ * this class just holds some constants to be easily accessible from the rest of the GUI
+ * @author elliotlard
+ *
+ */
 public class GUIConstants
 {
 	public final static int TILESIZE = 12;

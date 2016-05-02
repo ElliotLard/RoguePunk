@@ -1,11 +1,16 @@
-package GUI;
-
+package editor;
+/**
+ * 
+ * annnnd one more that is part of the editor
+ */
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
+
+import GUI.GUIConstants;
 
 public class EditorTile extends JLabel implements MouseListener
 {

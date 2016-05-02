@@ -1,4 +1,4 @@
-package GUI;
+package editor;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,6 +15,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import GUI.GUIConstants;
+/**
+ * this class is not directly part of the project but is used to make the levels
+ * @author elliotlard
+ *
+ */
 public class DungeonEditor extends JFrame implements ActionListener
 {
 	Editor gameSpace;

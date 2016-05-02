@@ -1,9 +1,13 @@
-package GUI;
-
+package editor;
+/**
+ * another class for the dungeonEditor
+ */
 import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
+
+import GUI.GUIConstants;
 import environment.Environment;
 
 public class Editor

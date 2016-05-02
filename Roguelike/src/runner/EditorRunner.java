@@ -3,8 +3,8 @@ package runner;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
-import GUI.DungeonEditor;
 import GUI.Game;
+import editor.DungeonEditor;
 import environment.Environment;
 
 public class EditorRunner

@@ -9,14 +9,21 @@ import command.InvokerBuilder;
 import environment.Environment;
 import lifeform.Player;
 
-
+/**
+ * The Game class holds the JFrame that contains the whole game
+ * It also initializes everythign that will be in the game
+ * @author elliotlard
+ *
+ */
 public class Game
 {
 	JFrame game;
 	DisplayState state;
 	Legend legend;
 
-	
+	/**
+	 * initializes the player, legend, state, and Invoker
+	 */
 	public Game()
 	{
 		Player player = new Player();
@@ -30,13 +37,21 @@ public class Game
 		player.moveLifeForm(Environment.getCell(30, 40));	
 		update();
 	}
+	/**
+	 * changes the state of the game to s
+	 * so far generally only used to go from menu to game
+	 * @param s
+	 */
 	public void changeState(DisplayState s)
 	{
 		game.remove(state.get());
 		state = s;
 		update();
 	}
-
+	
+	/**
+	 * encapsulates much of the initialization
+	 */
 	public void update()
 	{
 		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,6 +63,9 @@ public class Game
 		game.setVisible(true);
 	}
 	
+	/**
+	 * tells the state when to update
+	 */
 	public void updateState()
 	{
 		if(state instanceof GameState)
