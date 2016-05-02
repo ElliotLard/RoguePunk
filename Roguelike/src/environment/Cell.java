@@ -21,6 +21,7 @@ public class Cell implements Displayable
 	 * @param  y	the y index of the cell to be created
 	 * @param  x	the x index of the cell to be created
 	 */
+	
 	public Cell(int y, int x, char r)
 	{
 		yLoc = y;

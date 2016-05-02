@@ -28,13 +28,14 @@ public class Game
 	{
 		Player player = new Player();
 		legend = new Legend(player);
+		Environment.getLevel("level1");
 		InvokerBuilder.getInvoker(player, this);
 		KeyListener listener = InvokerBuilder.getInvoker(player, this).getKeyListener();
 		state = new MenuState(this);
 		game = new JFrame();
 		game.addKeyListener(listener);
 		game.setFocusable(true);
-		player.moveLifeForm(Environment.getCell(30, 40));	
+		player.moveLifeForm(Environment.getSpawn());	
 		update();
 	}
 	/**

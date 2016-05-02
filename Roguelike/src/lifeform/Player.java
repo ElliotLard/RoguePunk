@@ -82,5 +82,6 @@ public class Player extends LifeForm
 					moveLifeForm(right);
 			}
 		}
+		Environment.observe.updateObserver();
 	}
 }
