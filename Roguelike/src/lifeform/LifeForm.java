@@ -36,14 +36,14 @@ public abstract class LifeForm implements RoundObserver, Displayable
 	 * @param strength
 	 * @param speed
 	 */
-	public LifeForm(String name, char rep, Item h, Item t, Item a,
+	public LifeForm(String name, char r, Item h, Item t, Item a,
 			Item l)
 	{
 		hp[0] = (h.getHP()+t.getHP()+a.getHP()+l.getHP());
 		hp[1] = hp[0];
 		str = h.getSTR()+t.getSTR()+a.getSTR()+l.getSTR();
 		spd = h.getSPD()+t.getSPD()+a.getSPD()+l.getSPD();
-		
+		rep = r;
 		head = h;
 		torso = t;
 		arms = a;
