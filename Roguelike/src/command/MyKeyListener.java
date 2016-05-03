@@ -11,31 +11,33 @@ public class MyKeyListener implements KeyListener
 	/**
 	 * @author Christopher Wilson
 	 * 
-	 * Sets the KeyListener to be able to call
-	 * commands to the player and update the game
-	 * GUI.
+	 *         Sets the KeyListener to be able to call commands to the player
+	 *         and update the game GUI.
 	 */
 	Game game;
 	Player player;
+	Command move, equip;
 
-	public MyKeyListener(Player player, Game g){
+	public MyKeyListener(Game g, Command move, Command equip)
+	{
 		this.player = player;
+		this.move = move;
+		this.equip = equip;
 		game = g;
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
 		/**
-		 * Reads in the key the player uses and uses the cases
-		 * accordingly to call to the command to execute.
+		 * Reads in the key the player uses and uses the cases accordingly to
+		 * call to the command to execute.
 		 * 
 		 * After every key press the GUI is updated.
 		 */
-		Command move = new Move(player);
-		Command equip = new Equip(player);
 		char entered = e.getKeyChar();
-		switch (entered){
+		switch (entered)
+		{
 		case 'w':
 			move.execute(entered);
 			break;
@@ -51,8 +53,8 @@ public class MyKeyListener implements KeyListener
 		case 'x':
 			equip.execute(entered);
 			break;
-			default:
-				break;
+		default:
+			break;
 		}
 		game.updateState();
 	}
@@ -63,23 +65,21 @@ public class MyKeyListener implements KeyListener
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub
 	}
-	
-	
+
 	/**
 	 * Allows us to set the game value
+	 * 
 	 * @param g
 	 */
 	public void setGame(Game g)
 	{
 		game = g;
 	}
-
 }
