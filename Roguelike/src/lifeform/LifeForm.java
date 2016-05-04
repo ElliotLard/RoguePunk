@@ -124,7 +124,8 @@ public abstract class LifeForm implements RoundObserver, Displayable
 		if (location != null)
 			location.removeLifeForm();
 		location = c;
-		c.addLifeForm(this);
+		if(c!=null)
+			c.addLifeForm(this);
 	}
 
 	// Aaron - Calculates damage for monsters and player
