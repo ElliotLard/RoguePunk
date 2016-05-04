@@ -14,6 +14,7 @@ public class Monster extends LifeForm implements RoundObserver
 	//Difficulty can never be 0
 	private int difficulty;
 	private MonsterState state;
+	private boolean dropped = false;
 	
 	//A fully customizable monster
 	public Monster(String name, char rep, int d, Item h, Item t, Item a, Item l)
@@ -67,15 +68,17 @@ public class Monster extends LifeForm implements RoundObserver
 	@Override
 	public void updateRound(int round)
 	{
-		if(hp[0]<=0)
+		if(hp[0]<=0&&dropped==false)
 		{
 			Item drop = rollDrop();
 			if(drop != null)
 				dropItem(location, drop);
-			location = null;
+			state.changeState(new MonsterState());
 		}
 		else
+		{
 			state.activate();
+		}
 	}
 
 	//Calculates a drop for the player
@@ -83,6 +86,7 @@ public class Monster extends LifeForm implements RoundObserver
 	{
 		Random ran = new Random();
 		Item drop = null;
+		dropped = true;
 		
 		//Loot table for the monsters
 		switch(ran.nextInt(15)+1)

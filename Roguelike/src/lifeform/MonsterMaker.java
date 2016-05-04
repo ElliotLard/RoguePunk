@@ -16,7 +16,7 @@ public class MonsterMaker
 		Item torso = ItemGenerator.genTorso(1);
 		Item head = ItemGenerator.genHead(1);
 		
-		Monster jerry = new Monster("Jerry", 'j', 1, head, torso, arms, legs);
+		Monster jerry = new Monster("Jerry", 'm', 1, head, torso, arms, legs);
 		
 		jerry.changeState(new FullyAggressiveState());
 		
@@ -47,7 +47,7 @@ public class MonsterMaker
 				torso = ItemGenerator.genTorso(r);
 				head = ItemGenerator.genHead(r);
 				
-				jerry = new Monster("Jerry the Destroyer", 'j', d, head, torso, arms, legs);
+				jerry = new Monster("Jerry the Destroyer", 'M', d, head, torso, arms, legs);
 				
 				jerry.changeState(new PassiveState());
 				break;
@@ -59,7 +59,7 @@ public class MonsterMaker
 				torso = ItemGenerator.genTorso(r);
 				head = ItemGenerator.genHead(r);
 				
-				jerry = new Monster("Jerry", 'j', d, head, torso, arms, legs);
+				jerry = new Monster("Jerry", 'm', d, head, torso, arms, legs);
 				
 				jerry.changeState(new FullyAggressiveState());
 				break;

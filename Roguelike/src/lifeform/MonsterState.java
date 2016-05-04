@@ -33,9 +33,9 @@ public class MonsterState
 
 		int boundryY = Environment.HEIGHT;
 		int boundryX = Environment.WIDTH;
-
-		int mX = monster.getxLocation();
+		
 		int mY = monster.getyLocation();
+		int mX = monster.getxLocation();
 
 		// Checks for out of bounds exceptions and for player location
 		// that are north of the monster

@@ -78,9 +78,7 @@ public class TestMonster
 		jerry.takeDamage(jerry.getCurhp());
 		
 		observe.updateObserver();
-		
-		assertTrue(jerry.getCell()==null);
-		
+				
 		//Every once in a while this WILL fail, since monsters do not always drop an item
 		assertTrue(testCell.hasItem());
 		}
